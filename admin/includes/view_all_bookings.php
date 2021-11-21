@@ -88,11 +88,14 @@
 </tbody>
 </table>
 
-<!-- || SWITCH TO ADMIN || -->
-<?php //switch_to_admin(); ?>
+<!-- || APPROVE BOOKING || -->
+<?php  ?>
 
-<!--  || SWITCH TO SUBSCRIBER || -->
-<?php //switch_to_employee(); ?>
+<!-- || REJECT BOOKING || -->
+<?php  ?>
+
+<!--  || EDIT BOOKING || -->
+<?php  ?>
 
 <!-- || DELETE BOOKING || -->
 <?php delete_booking(); ?>

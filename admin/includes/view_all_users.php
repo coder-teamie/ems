@@ -1,7 +1,7 @@
 <table class="table table-bordered table-hover">
   <thead>
   <tr>
-    <th>Id</th>
+    <th>ID</th>
     <th>Username</th>
     <th>Firstname</th>
     <th>Lastname</th>
@@ -56,7 +56,7 @@
 <!-- || SWITCH TO ADMIN || -->
 <?php switch_to_admin(); ?>
 
-<!--  || SWITCH TO SUBSCRIBER || -->
+<!--  || SWITCH TO EMPLOYEE || -->
 <?php switch_to_employee(); ?>
 
 <!-- || DELETE USER || -->

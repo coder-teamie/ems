@@ -11,7 +11,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="index.php">BackRoads Tour Company</a>
+    <a class="navbar-brand" href="index.php" style="color: white;">BackRoads Tour Company</a>
 </div>
 
 

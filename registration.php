@@ -5,6 +5,8 @@
     if(isset($_POST['submit'])){
         $username = $_POST['username'];
         $email = $_POST['email'];
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
         $password = $_POST['password'];
 
     if(!empty($username) && !empty($email) && !empty($password)){
@@ -28,13 +30,13 @@
         // $salt = $row['randSalt'];
         // $password = crypt($password, $salt);
 
-        $query = "INSERT INTO users (username, user_email, user_password, user_role) VALUES ('{$username}', '{$email}', '{$password}', 'subscriber' )";
+        $query = "INSERT INTO users (username, user_email, user_firstname, user_lastname, user_password, user_role) VALUES ('{$username}', '{$email}', '{$firstname}', '{$lastname}', '{$password}', 'customer' )";
         $register_user_query = mysqli_query($connection, $query);
         if(!$register_user_query){
             die("QUERY FAILED" . mysqli_error($connection) . ' ' . mysqli_errno($connection));
         }
 
-        $message = "Your registration has been submitted!";
+        $message = "<p class='bg-success'>Your registration has been submitted!</p>";
     }
     else{
         $message = "Fields cannot be empty";
@@ -65,6 +67,14 @@
                 <input type="text" name="username" id="username" class="form-control" placeholder="Enter Desired Username">
               </div>
               <div class="form-group">
+                <label for="username" class="sr-only">Firstname</label>
+                <input type="text" name="firstname" id="firstname" class="form-control" placeholder="Enter Your firstname">
+              </div>
+              <div class="form-group">
+                <label for="username" class="sr-only">Lastname</label>
+                <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Enter Your lastname">
+              </div>
+              <div class="form-group">
                 <label for="email" class="sr-only">Email</label>
                 <input type="email" name="email" id="email" class="form-control" placeholder="somebody@example.com">
               </div>
@@ -73,7 +83,7 @@
                 <input type="password" name="password" id="key" class="form-control" placeholder="Password">
               </div>
       
-              <input type="submit" name="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Register">
+              <input type="submit" style="width: 50%; margin: 0 auto;" name="submit" id="btn-login" class="btn btn-primary btn-custom btn-lg btn-block" value="Register">
           </form>
         </div>
       </div> <!-- /.col-xs-12 -->
@@ -84,5 +94,8 @@
 
         <hr>
 
+<div style="text-align: center;">
 
-<?php include "includes/footer.php";?>
+  <?php include "includes/footer.php";?>
+
+</div>
