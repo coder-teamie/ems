@@ -18,7 +18,8 @@
 
     <!-- Log in FORM -->
     <div class="well">
-        <h4>Log in</h4>
+        <!-- <h4>Log in</h4> -->
+        <img src="images/admin-login.jpg" alt="login image" width="100%">
 
         <form action="./includes/login.php" method="post">
         <div class="form-group">

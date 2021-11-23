@@ -1,3 +1,21 @@
+<style>
+.book-now {
+    background: white;
+    color: black !important;
+    border-radius: 20px;
+    padding: 5px 15px !important;
+    margin-top: 10px;
+    transition: all 300ms ease-in-out;
+}
+
+.book-now:hover{
+    transform: scale(1.1);
+    background: white !important;
+    color: black !important;
+}
+</style>
+
+
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -25,9 +43,10 @@
     $select_all_categories = mysqli_query($connection, $query);
 
     while($row = mysqli_fetch_array($select_all_categories)){
+        $cat_id = $row['cat_id'];
         $cat_title = $row['cat_title'];
 
-        echo "<li><a href='#'>{$cat_title}</a></li>";
+        echo "<li><a href='category.php?category=$cat_id'>{$cat_title}</a></li>";
     }
 
 ?>
@@ -38,8 +57,8 @@
         <li>
             <a href="registration.php">Registration</a>
         </li>
-        <li>
-            <a href="./admin/bookings.php?source=add_booking">Book Now</a>
+        <li >
+            <a href="./admin/bookings.php?source=add_booking" class="book-now">Book Now</a>
         </li>
     </ul>
 </div>
