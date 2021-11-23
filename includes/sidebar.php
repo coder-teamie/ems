@@ -40,7 +40,7 @@
 
 <?php
 
-  $query = "SELECT * FROM categories LIMIT 4";
+  $query = "SELECT * FROM categories LIMIT 5";
   $select_categories_sidebar = mysqli_query($connection, $query);
 
 ?>

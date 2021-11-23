@@ -29,12 +29,23 @@
     $user_email = $_POST['user_email'];
     $user_password = $_POST['user_password'];
 
+    $query = "SELECT randSalt FROM users ";
+    $select_randSalt = mysqli_query($connection, $query);
+
+    if(!$select_randSalt){
+      die("QUERY FAILED" . mysqli_error($connection));;
+    }
+
+    $row = mysqli_fetch_array($select_randSalt);
+    $salt = $row['randSalt'];
+    $hashed_password = crypt($user_password, $salt);
+
     $query = "UPDATE users SET ";
     $query .= "user_firstname = '{$user_firstname}', ";
     $query .= "user_lastname = '{$user_lastname}', ";
     $query .= "username = '{$username}', ";
     $query .= "user_email = '{$user_email}', ";
-    $query .= "user_password = '{$user_password}' ";
+    $query .= "user_password = '{$hashed_password}' ";
     $query .= "WHERE username = '{$username}' ";
 
     $edit_profile_query  = mysqli_query($connection, $query);

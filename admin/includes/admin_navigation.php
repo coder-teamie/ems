@@ -52,6 +52,12 @@
             <a href="./categories.php"><i class="fa fa-fw fa-wrench"></i> Categories</a>
         </li>
         <li>
+            <a href="./inquiries.php"><i class="fas fa-fw fa-question-circle"></i> Inquiries</a>
+        </li>
+        <li>
+            <a href="./calendar.php"><i class="far fa-fw fa-calendar-alt"></i> Calender</a>
+        </li>
+        <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#bookings"><i class="fa fa-fw fa-arrows-v"></i> Bookings <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="bookings" class="collapse">
         <li>

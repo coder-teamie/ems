@@ -37,7 +37,7 @@
 
   <div class="form-group">
     <select name="user_role" id="">
-      <option value="customer">--Select Role--</option>
+      <option value="employee">--Select Role--</option>
       <option value="admin">Admin</option>
       <option value="employee">Employee</option>
       <option value="customer">Customer</option>

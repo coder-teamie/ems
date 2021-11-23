@@ -6,16 +6,17 @@
     <th>Lastname</th>
     <th>Role</th>
     <th>Email</th>
-    <th>Catering Service</th>
+    <th>Catering</th>
     <th>Category</th>
     <th>Venue</th>
     <th>Date</th>
     <th>Time</th>
     <th>Duration</th>
-    <th>Event Package</th>
-    <th>Event Status</th>
+    <th>Package</th>
+    <th>Status</th>
     <th>Approve</th>
     <th>Reject</th>
+    <th>Completed</th>
     <th>Edit</th>
     <th>Delete</th>
   </tr>
@@ -73,11 +74,21 @@
     echo "<td>{$event_time}</td>";
     echo "<td>{$event_duration}</td>";
     echo "<td>{$event_package}</td>";
-    echo "<td>approved</td>";
+
+
+    $booking_status_query = "SELECT * FROM bookings WHERE booking_id = {$booking_id} ";
+    $select_booking = mysqli_query($connection, $booking_status_query);
+
+    while($row = mysqli_fetch_array($select_booking)){
+      $booking_id = $row['booking_id'];
+      $booking_status = $row['booking_status'];
+      echo "<td>{$booking_status}</td>";
+    }
     
 # || ACTION BUTTONS ||
-  echo "<td><a href='./bookings.php?approve={}'>Approve</a></td>";
-  echo "<td><a href='./bookings.php?reject={}'>Reject</a></td>";
+  echo "<td><a href='./bookings.php?approve_booking={$booking_id}'>Approve</a></td>";
+  echo "<td><a href='./bookings.php?reject_booking={$booking_id}'>Reject</a></td>";
+  echo "<td><a href='./bookings.php?complete_booking={$booking_id}'>Completed</a></td>";
   echo "<td><a href='./bookings.php?source=edit_booking&b_id={$booking_id}'>Edit</a></td>";
   echo "<td><a href='./bookings.php?delete={$booking_id}'>Delete</a></td>";
   echo "</tr>";
@@ -89,10 +100,13 @@
 </table>
 
 <!-- || APPROVE BOOKING || -->
-<?php  ?>
+<?php approve_booking(); ?>
 
 <!-- || REJECT BOOKING || -->
-<?php  ?>
+<?php reject_booking(); ?>
+
+<!-- || COMPLETE BOOKING || -->
+<?php complete_booking(); ?>
 
 <!--  || EDIT BOOKING || -->
 <?php  ?>

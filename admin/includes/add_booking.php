@@ -13,8 +13,8 @@
     $event_duration = escape($_POST['event_duration']);
     $event_package = escape($_POST['event_package']);
 
-    $query = "INSERT INTO bookings(user_firstname, user_lastname, user_role, user_email, catering, event_category, event_venue, event_date, event_time, event_duration, event_package) ";
-    $query .= "VALUES('{$user_firstname}','{$user_lastname}','{$user_role}','{$user_email}','{$catering}','{$event_category}','{$event_venue}','{$event_date}','{$event_time}','{$event_duration}','{$event_package}' )";
+    $query = "INSERT INTO bookings(user_firstname, user_lastname, user_role, user_email, catering, booking_status, event_category, event_venue, event_date, event_time, event_duration, event_package) ";
+    $query .= "VALUES('{$user_firstname}','{$user_lastname}','{$user_role}','{$user_email}','{$catering}', 'Pending', '{$event_category}','{$event_venue}','{$event_date}','{$event_time}','{$event_duration}','{$event_package}' )";
 
     $create_booking_query = mysqli_query($connection, $query);
     confirm_query($create_booking_query);

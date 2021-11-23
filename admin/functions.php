@@ -142,4 +142,60 @@ function switch_to_employee () {
   }
 }
 
+# || APPROVE BOOKING ||
+
+function approve_booking () {
+  global $connection;
+
+  if(isset($_GET['approve_booking'])){
+  $booking_id = $_GET['approve_booking'];
+  $query = "UPDATE bookings SET booking_status = 'Approved' WHERE booking_id = $booking_id ";
+  $approve_query = mysqli_query($connection, $query);
+
+  header("Location: bookings.php");
+  }
+}
+
+# || REJECT BOOKING ||
+
+function reject_booking () {
+  global $connection;
+
+  if(isset($_GET['reject_booking'])){
+  $booking_id = $_GET['reject_booking'];
+  $query = "UPDATE bookings SET booking_status = 'Rejected' WHERE booking_id = $booking_id ";
+  $reject_query = mysqli_query($connection, $query);
+
+  header("Location: bookings.php");
+  }
+}
+
+# || COMPLETE BOOKING ||
+
+function complete_booking () {
+  global $connection;
+
+  if(isset($_GET['complete_booking'])){
+  $booking_id = $_GET['complete_booking'];
+  $query = "UPDATE bookings SET booking_status = 'Completed' WHERE booking_id = $booking_id ";
+  $complete_query = mysqli_query($connection, $query);
+
+  header("Location: bookings.php");
+  }
+}
+
+# || EDIT BOOKING ||
+
+// function edit_booking () {
+//   global $connection;
+
+//   if(isset($_GET['edit_booking'])){
+//   $booking_id = $_GET['edit_booking'];
+//   $query = "UPDATE bookings SET booking_status = 'Approved' WHERE booking_id = $booking_id ";
+//   $approve_query = mysqli_query($connection, $query);
+
+//   header("Location: bookings.php");
+//   }
+// }
+
 ?>
