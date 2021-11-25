@@ -8,7 +8,7 @@
 <?php include "./includes/navigation.php"; ?>
 
 <!-- Page Content -->
-<div class="container">
+<div class="container" style="margin: 0 auto !important;">
 
     <div class="row">
 
@@ -58,11 +58,9 @@
         <img class="img-responsive" src="images/<?php echo $post_image ?>" alt="">
         <hr>
         <p><?php echo $post_content; ?></p>
-        <a class="btn btn-primary" href="#">Inquire Now<span class="glyphicon glyphicon-chevron-right"></span></a>
+        <a class="btn btn-primary" href="#contact-form">Inquire Now<span class="glyphicon glyphicon-chevron-right"></span></a>
 
 
-            
-            
 <?php } 
 }
 else {
@@ -166,7 +164,7 @@ if(isset($_POST['create_inquiry'])){
 }
 ?>
 
-<div class="well">
+<div class="well" id="contact-form">
 <h4>Contact Us </h4>
 <form action="" role="form" method="post">
     <label for="author">Name</label>
@@ -257,7 +255,7 @@ if(isset($_POST['create_inquiry'])){
     </div>
 
 <!-- Blog Sidebar Widgets Column -->
-<?php include "./includes/sidebar.php"; ?>
+<?php //include "./includes/sidebar.php"; ?>
 
 </div>
 <!-- /.row -->

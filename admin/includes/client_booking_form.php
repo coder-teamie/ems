@@ -1,4 +1,21 @@
-<?php
+<?php include "client_navigation.php"; ?>
+<!-- <div id="wrapper">
+
+<div id="page-wrapper">
+
+    <div class="container-fluid"> -->
+
+        <!-- Page Heading -->
+        <!-- <div class="row">
+            <div class="col-lg-12"> -->
+
+                <!-- <h1 class="page-header">
+                    Welcome, 
+                    <small style="text-transform: capitalize;"><?php //echo $_SESSION['username']; ?></small>
+                </h1> -->
+              
+              
+            <?php
   if(isset($_POST['create_booking'])){
     $user_firstname = escape($_POST['user_firstname']);
     $user_lastname = escape($_POST['user_lastname']);
@@ -19,8 +36,7 @@
     $create_booking_query = mysqli_query($connection, $query);
     confirm_query($create_booking_query);
 
-    echo "<p class='bg-success'>Booking Created. <a href='./bookings.php' style='font-weight: bold;'> View Bookings </a>
-    </p>";
+    echo "<p class='bg-success'>Booking Created.</p>";
   }
 
 ?>
@@ -41,8 +57,6 @@
     <label for="user_role">User Role: </label>
     <select name="user_role" class="form-control" id="">
       <option value="n/a">--Select Options--</option>
-      <option value="admin">Admin</option>
-      <option value="employee">Employee</option>
       <option value="customer">Customer</option>
     </select>
   </div>
@@ -151,3 +165,7 @@
 
 
 </form>
+            
+            </div>
+        </div>
+        <!-- /.row -->

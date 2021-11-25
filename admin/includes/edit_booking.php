@@ -151,10 +151,9 @@ $select_bookings_by_id = mysqli_query($connection, $query);
 
 <div class="form-group">
     <label for="event_venue">Event Venue: </label>
-  <select name="event_venue" class="form-control" id="post_category">
-    <?php
-    echo "<option value='{$event_category}'>{$event_category}</option>";
-    ?>
+  <select name="event_venue" class="form-control" id="">
+    <?php echo "<option value='{$event_venue}'>{$event_venue}</option>"; ?>
+    <!-- <option value="<?php //echo $event_venue; ?>"><?php // echo $event_venue; ?></option> -->
 
 <?php
 
@@ -191,25 +190,25 @@ $select_bookings_by_id = mysqli_query($connection, $query);
       <option value="<?php echo $event_duration ?>"><?php echo $event_duration ?></option>
 
       <?php
-        if($event_duration == "1hr"){
-          echo "<option value='2hrs'>2 Hours | $700</option>";
-          echo "<option value='4hrs'>4 Hours | $850</option>";
-          echo "<option value='6hrs'>6 Hours Maximum | $1200</option>";
+        if($event_duration == "1-Hour|Mininum|$500"){
+          echo "<option value='2-Hours|$700'>2 Hours | $700</option>";
+          echo "<option value='4-Hours|$850'>4 Hours | $850</option>";
+          echo "<option value='6-Hours|Maximum|$1200'>6 Hours Maximum | $1200</option>";
         }
-        else if($event_duration == "2hr"){
-          echo "<option value='1hr'>1 Hour Mininum | $500</option>";
-          echo "<option value='4hrs'>4 Hours | $850</option>";
-          echo "<option value='6hrs'>6 Hours Maximum | $1200</option>";
+        else if($event_duration == "2-Hours|$700"){
+          echo "<option value='1-Hour|Mininum|$500'>1 Hour Mininum | $500</option>";
+          echo "<option value='4-Hours|$850'>4 Hours | $850</option>";
+          echo "<option value='6-Hours|Maximum|$1200'>6 Hours Maximum | $1200</option>";
         }
-        else if($event_duration == "4hrs"){
-          echo "<option value='1hr'>1 Hour Mininum | $500</option>";
-          echo "<option value='2hrs'>2 Hours | $700</option>";
-          echo "<option value='6hrs'>6 Hours Maximum | $1200</option>";
+        else if($event_duration == "4-Hours|$850"){
+          echo "<option value='1-Hour|Mininum|$500'>1 Hour Mininum | $500</option>";
+          echo "<option value='2-Hours|$700'>2 Hours | $700</option>";
+          echo "<option value='6-Hours|Maximum|$1200'>6 Hours Maximum | $1200</option>";
         }
         else{
-          echo "<option value='1hr'>1 Hour Mininum | $500</option>";
-          echo "<option value='2hrs'>2 Hours | $700</option>";
-          echo "<option value='4hrs'>4 Hours | $850</option>";
+          echo "<option value='1-Hour|Mininum|$500'>1 Hour Mininum | $500</option>";
+          echo "<option value='2-Hours|$700'>2 Hours | $700</option>";
+          echo "<option value='4-Hours|$850'>4 Hours | $850</option>";
         }
       ?>
     </select>
@@ -239,7 +238,7 @@ $select_bookings_by_id = mysqli_query($connection, $query);
 
 
     <div class="form-group">
-      <input type="submit" name="update_booking" class="btn btn-primary" value="Book Now">
+      <input type="submit" name="update_booking" class="btn btn-primary" value="Update Booking">
     </div>
   </div>
 

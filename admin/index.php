@@ -1,6 +1,18 @@
 <!-- || HEADER || -->
 <?php include "./includes/admin_header.php"; ?>
 
+<?php
+
+    if($_SESSION['user_role'] == 'customer'){
+
+        include "./includes/client_navigation.php";
+
+    } 
+    
+    else{
+
+?>
+
 <div id="wrapper">
 
 <!-- Navigation -->
@@ -232,6 +244,11 @@ $customer_count = mysqli_num_rows($select_all_customers);
 
 </div>
 <!-- /#wrapper -->
+
+    <?php }
+?>
+
+
 
 <!-- || FOOTER || -->
 <?php include "./includes/admin_footer.php"; ?>
