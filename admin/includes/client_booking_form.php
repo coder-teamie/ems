@@ -1,20 +1,3 @@
-<?php include "client_navigation.php"; ?>
-<!-- <div id="wrapper">
-
-<div id="page-wrapper">
-
-    <div class="container-fluid"> -->
-
-        <!-- Page Heading -->
-        <!-- <div class="row">
-            <div class="col-lg-12"> -->
-
-                <!-- <h1 class="page-header">
-                    Welcome, 
-                    <small style="text-transform: capitalize;"><?php //echo $_SESSION['username']; ?></small>
-                </h1> -->
-              
-              
             <?php
   if(isset($_POST['create_booking'])){
     $user_firstname = escape($_POST['user_firstname']);
