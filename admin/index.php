@@ -5,7 +5,7 @@
 
     if($_SESSION['user_role'] == 'customer'){
 
-        include "./includes/client_navigation.php";
+        include "./includes/client_admin_navigation.php";
 
     } 
     
@@ -177,9 +177,9 @@ $query = "SELECT * FROM bookings WHERE booking_status = 'Approved' ";
 $approved_bookings = mysqli_query($connection,$query);
 $approved_bookings_count = mysqli_num_rows($approved_bookings);
 
-$query = "SELECT * FROM bookings WHERE booking_status = 'Completed' ";
-$pending_bookings = mysqli_query($connection,$query);
-$completed_bookings_count = mysqli_num_rows($pending_bookings);
+// $query = "SELECT * FROM bookings WHERE booking_status = 'Completed' ";
+// $pending_bookings = mysqli_query($connection,$query);
+// $completed_bookings_count = mysqli_num_rows($pending_bookings);
 
 $query = "SELECT * FROM bookings WHERE booking_status = 'Pending' ";
 $pending_bookings = mysqli_query($connection,$query);
@@ -206,17 +206,15 @@ $customer_count = mysqli_num_rows($select_all_customers);
         ['Data', 'Count'],
 
         <?php
-            $elememt_text = ['All Posts','Active Posts','Draft Posts', 'Bookings', 'Approved Bookings', 'Completed Bookings', 'Pending Bookings', 'Users', 'Employees', 'Customers', 'Categories'];
-            $elememt_count = [$post_count, $post_published_count, $post_draft_count, $bookings_count, $approved_bookings_count, $completed_bookings_count, $pending_bookings_count, $users_count, $employee_count, $customer_count, $categories_count];
+            $elememt_text = ['All Posts','Active Posts','Draft Posts', 'Bookings', 'Approved Bookings', 'Pending Bookings', 'Users', 'Employees', 'Customers', 'Categories'];
+            $elememt_count = [$post_count, $post_published_count, $post_draft_count, $bookings_count, $approved_bookings_count, $pending_bookings_count, $users_count, $employee_count, $customer_count, $categories_count];
 
-            for($i = 0; $i < 11; $i++){
+            for($i = 0; $i < 10; $i++){
                 echo "['{$elememt_text[$i]}'" . "," . "{$elememt_count[$i]}],";
             }
 
 
         ?>
-
-        // ['Post', 1000],
         ]);
 
         var options = {

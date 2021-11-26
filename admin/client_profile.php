@@ -1,39 +1,5 @@
 <?php include "./includes/admin_header.php"; ?>
 
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.php">EMS Admin</a>
-    </div>
-    <!-- Top Menu Items -->
-    <ul class="nav navbar-right top-nav">
-        <li><a href="../index.php">Home</a></li>
-
-
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="text-transform: capitalize;"><i class="fa fa-user"></i> <?php echo $_SESSION['username']; ?> <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="../includes/logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</nav>
-
 <?php
 
 if(isset($_SESSION['username'])){
@@ -88,20 +54,12 @@ if(isset($_POST['edit_user'])){
 
 ?>
 
-<div id="wrapper">
+<!-- NAVIGATION -->
+<?php include "./includes/client_admin_navigation.php" ?>
 
 <div id="page-wrapper">
 
   <div class="container-fluid">
-
-
-<!-- Page Heading -->
-<div class="row">
-  <div class="col-lg-12">
-  <h1 class="page-header">
-    Welcome to Admin
-    <small>Author</small>
-  </h1>
 
   <form action="" method="post" enctype="multipart/form-data">
   
@@ -139,8 +97,8 @@ if(isset($_POST['edit_user'])){
 </form>
 
 
-</div>
-</div>
+<!-- </div>
+</div> -->
 </div>
 </div>
 <!-- </div> -->

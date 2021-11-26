@@ -1,4 +1,4 @@
-            <?php
+<?php
   if(isset($_POST['create_booking'])){
     $user_firstname = escape($_POST['user_firstname']);
     $user_lastname = escape($_POST['user_lastname']);
@@ -149,6 +149,6 @@
 
 </form>
             
-            </div>
-        </div>
-        <!-- /.row -->
+    <!-- </div>
+</div> -->
+<!-- /.row -->

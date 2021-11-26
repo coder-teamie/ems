@@ -69,6 +69,17 @@
             </ul>
         </li>
         <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#venues"><i class="fas fa-fw fa-hotel"></i> Venues <i class="fa fa-fw fa-caret-down"></i></a>
+            <ul id="venues" class="collapse">
+        <li>
+            <a href="./.php"> View All Venues</a>
+            </li>
+            <li>
+            <a href="./.php?source=add_booking"> Add Venue</a>
+            </li>
+            </ul>
+        </li>
+        <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#users"><i class="fa fa-fw fa-arrows-v"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="users" class="collapse">
         <li>
