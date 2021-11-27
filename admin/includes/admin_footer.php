@@ -10,6 +10,8 @@
     <!-- || FONT AWESOME || -->
     <script src="https://kit.fontawesome.com/2cd1fc15ff.js" crossorigin="anonymous"></script>
 
+    <script src="js/summernote.min.js"></script>
+
 </body>
 
 </html>

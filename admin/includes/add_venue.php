@@ -1,30 +1,22 @@
 <?php
   if(isset($_POST['create_venue'])){
-    $post_title = escape($_POST['title']);
-    $post_author = escape($_POST['post_author']);
-    $post_category_id = escape($_POST['post_category']);
-    $post_status = escape($_POST['post_status']);
+    $venue_title = escape($_POST['venue_title']);
 
-    $post_image = $_FILES['image']['name'];
-    $post_image_temp = $_FILES['image']['tmp_name'];
+    $venue_image = $_FILES['image']['name'];
+    $venue_image_temp = $_FILES['image']['tmp_name'];
 
-    $post_tags = escape($_POST['post_tags']);
-    $post_content = escape($_POST['post_content']);
-    $post_date = date('d-m-y');
+    $venue_caption = escape($_POST['venue_caption']);
+    move_uploaded_file($venue_image_temp, "../images/$venue_image");
 
-    move_uploaded_file($post_image_temp, "../images/$post_image");
-
-
-    $query = "INSERT INTO venue(post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags, post_status) ";
-    $query .= "VALUES({$post_category_id},'{$post_title}','{$post_author}',now(),'{$post_image}','{$post_content}','{$post_tags}','{$post_status}' )";
+    $query = "INSERT INTO venue(venue_title, venue_image, venue_caption) VALUES('{$venue_title}','{$venue_image}','{$venue_caption}')";
 
     $create_venue_query = mysqli_query($connection, $query);
     confirm_query($create_venue_query);
 
     # || GET LATEST ID OF POST FROM DB ||
-    $the_post_id = mysqli_insert_id($connection);
+    // $the_post_id = mysqli_insert_id($connection);
 
-    echo "<p class='bg-success'>Post Created. <a style='font-weight: bold;' href='../post.php?p_id=$the_post_id'>View Post</a> or <a href='./posts.php' style='font-weight: bold;'> Add More Posts</a>
+    echo "<p class='bg-success'>Venue Created. <a href='./venues.php' style='font-weight: bold;'> View all Venues</a>
     </p>";
   }
 
@@ -36,55 +28,36 @@
     <input type="text" name="venue_title" class="form-control">
   </div>
 
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label for="post_category">Category: </label>
-  <select name="post_category" id="post_category">
+  <select name="post_category" id="post_category"> -->
 
 <?php
 
-  $query = "SELECT * FROM categories";
-  $select_categories = mysqli_query($connection, $query);
+  // $query = "SELECT * FROM categories";
+  // $select_categories = mysqli_query($connection, $query);
 
-  confirm_query($select_categories);
+  // confirm_query($select_categories);
 
-  while($row = mysqli_fetch_assoc($select_categories)){
-    $cat_id = $row['cat_id'];
-    $cat_title = $row['cat_title'];
+  // while($row = mysqli_fetch_assoc($select_categories)){
+  //   $cat_id = $row['cat_id'];
+  //   $cat_title = $row['cat_title'];
 
-    echo "<option value='{$cat_id}'>{$cat_title}</option>";
-  }
+  //   echo "<option value='{$cat_id}'>{$cat_title}</option>";
+  // }
 ?>
-</select>
+<!-- </select>
 
-  </div>
-
-  <div class="form-group">
-    <label for="post_author">Users: </label>
-    <input type="text" name="post_author" class="form-control">
-
-  </div>
+  </div> -->
 
   <div class="form-group">
-    <select name="post_status" id="">
-      <option value="draft">--Select Option--</option>
-      <option value="published">Publish</option>
-      <option value="draft">Draft</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label for="post_image">Post Image</label>
+    <label for="venue_image">Venue Image</label>
     <input type="file" name="image">
   </div>
 
   <div class="form-group">
-    <label for="post_tags">Post Tags</label>
-    <input type="text" name="post_tags" class="form-control">
-  </div>
-
-  <div class="form-group">
-    <label for="summernote">Post Content</label>
-    <textarea type="text" id="summernote" name="post_content" class="form-control" cols="30" rows="10"></textarea>
+    <label for="summernote">Venue Caption</label>
+    <textarea type="text" id="summernote" name="venue_caption" class="form-control" cols="30" rows="10"></textarea>
   </div>
   
     <div class="form-group">

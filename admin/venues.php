@@ -29,7 +29,7 @@
 
   switch($source){
     case 'add_venue':
-      include "includes/add_venues.php";
+      include "includes/add_venue.php";
       break;
 
     case 'edit_venue':

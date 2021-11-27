@@ -72,10 +72,10 @@
             <a href="javascript:;" data-toggle="collapse" data-target="#venues"><i class="fas fa-fw fa-hotel"></i> Venues <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="venues" class="collapse">
         <li>
-            <a href="./.php"> View All Venues</a>
+            <a href="./venues.php"> View All Venues</a>
             </li>
             <li>
-            <a href="./.php?source=add_booking"> Add Venue</a>
+            <a href="./venues.php?source=add_venue"> Add Venue</a>
             </li>
             </ul>
         </li>

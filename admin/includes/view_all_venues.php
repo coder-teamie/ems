@@ -1,44 +1,28 @@
 <?php
   if(isset($_POST['checkBoxArray'])){
     
-    foreach($_POST['checkBoxArray'] as $postValueId){
+    foreach($_POST['checkBoxArray'] as $venueValueId){
 
     $bulk_options = $_POST['bulk_options'];
 
     switch($bulk_options){
-      case 'published':
-        $query = "UPDATE posts SET post_status = '$bulk_options' WHERE post_id = $postValueId ";
-        $update_post_status_published = mysqli_query($connection, $query);
-        confirm_query($update_post_status_published);
-        break;
-        
-      case 'draft':
-        $query = "UPDATE posts SET post_status = '$bulk_options' WHERE post_id = $postValueId ";
-        $update_post_status_draft = mysqli_query($connection, $query);
-        confirm_query($update_post_status_draft);
-        break;
 
       case 'delete':
-        $query = "DELETE FROM posts WHERE post_id = $postValueId ";
-        $delete_post_query = mysqli_query($connection, $query);
+        $query = "DELETE FROM venue WHERE venue_id = $venueValueId ";
+        $delete_venue_query = mysqli_query($connection, $query);
         break;
 
       case 'clone':
-        $query = "SELECT * FROM posts WHERE post_id = {$postValueId} ";
-        $select_post_query = mysqli_query($connection, $query);
+        $query = "SELECT * FROM venue WHERE venue_id = {$venueValueId} ";
+        $select_venue_query = mysqli_query($connection, $query);
 
-        while($row = mysqli_fetch_assoc($select_post_query)){
-          $post_user = $row['post_user'];
-          $post_title = $row['post_title'];
-          $post_category_id = $row['post_category_id'];
-          $post_status = $row['post_status'];
-          $post_image = $row['post_image'];
-          $post_content = $row['post_content'];
-          $post_tags = $row['post_tags'];
-          $post_date = $row['post_date'];
+        while($row = mysqli_fetch_assoc($select_venue_query)){
+          $venue_title = $row['venue_title'];
+          $venue_image = $row['venue_image'];
+          $venue_caption = $row['venue_caption'];
         }
-        $query = "INSERT INTO posts(post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags, post_status) ";
-        $query .= "VALUES({$post_category_id},'{$post_title}','{$post_author}',now(),'{$post_image}','{$post_content}','{$post_tags}','{$post_status}' )";
+        $query = "INSERT INTO venue(venue_title, venue_image, venue_caption) ";
+        $query .= "VALUES('{$venue_title}', '{$venue_image}', '{$venue_caption}')";
 
         $clone_query = mysqli_query($connection, $query);
 
@@ -60,8 +44,6 @@
   <div class="col-sm-4">
   <select name="bulk_options" class="form-control" id="">
     <option value="">--Select Option--</option>
-    <option value="published">Published</option>
-    <option value="draft">Draft</option>
     <option value="delete">Delete</option>
     <option value="clone">Clone</option>
   </select>
@@ -69,7 +51,7 @@
 
 <div class="form-group col-xs-4">
   <input type="submit" name="submit" class="btn btn-success" value="Apply">
-  <a href="./posts.php?source=add_post" class="btn btn-primary">Add New</a>
+  <a href="./venues.php?source=add_venue" class="btn btn-primary">Add New</a>
 
 </div>
 </div>
@@ -78,14 +60,9 @@
       <tr>
         <th><input type="checkbox" id="selectAllBoxes"></th>
         <th>Id</th>
-        <th>Author</th>
-        <th>Title</th>
-        <th>Category</th>
-        <th>Status</th>
-        <th>Image</th>
-        <th>Tags</th>
-        <th>Date</th>
-        <th>View Post</th>
+        <th>Venue Title</th>
+        <th>Venue Image</th>
+        <th>Caption</th>
         <th>Edit</th>
         <th>Delete</th>
       </tr>
@@ -94,57 +71,37 @@
       
 <?php
 
-  $query = "SELECT * FROM posts ORDER BY post_id DESC ";
-  $select_all_posts = mysqli_query($connection, $query);
+  $query = "SELECT * FROM venue ORDER BY venue_id ASC ";
+  $select_all_venues = mysqli_query($connection, $query);
 
-  while($row = mysqli_fetch_array($select_all_posts)){
-    $post_id = $row['post_id'];
-    $post_title = $row['post_title'];
-    $post_author = $row['post_author'];
-    $post_category_id = $row['post_category_id'];
-    $post_status = $row['post_status'];
-    $post_image = $row['post_image'];
-    $post_tags = $row['post_tags'];
-    $post_date = $row['post_date'];
+  while($row = mysqli_fetch_array($select_all_venues)){
+    $venue_id = $row['venue_id'];
+    $venue_title = $row['venue_title'];
+    $venue_image = $row['venue_image'];
+    $venue_caption = $row['venue_caption'];
 
     echo "<tr>";
 
     ?>
 
-<td><input type='checkbox' name='checkBoxArray[]' class='checkBoxes' value='<?php echo $post_id; ?>'></td>
+<td><input type='checkbox' name='checkBoxArray[]' class='checkBoxes' value='<?php echo $venue_id; ?>'></td>
 
 <?php
-    echo "<td>{$post_id}</td>";
-    echo "<td>{$post_author}</td>";
-    echo "<td>{$post_title}</td>";
+    echo "<td>{$venue_id}</td>";
+    echo "<td>{$venue_title}</td>";
 
-# || DYNAMIC CATEGORY ||
+    echo "<td><img width='100' height='80' src='../images/{$venue_image}' alt='image'></td>";
+    echo "<td>{$venue_caption}</td>";
 
-  $query = "SELECT * FROM categories WHERE cat_id = {$post_category_id} ";
-  $select_categories_id = mysqli_query($connection, $query);
-
-  while($row = mysqli_fetch_assoc($select_categories_id)){
-    $cat_id = $row['cat_id'];
-    $cat_title = $row['cat_title'];
-    echo "<td>{$cat_title}</td>";
-}
-# || END OF DYNAMIC CATEGORY ||
-
-    echo "<td>{$post_status}</td>";
-    echo "<td><img width='100' height='80' src='../images/{$post_image}' alt='image'></td>";
-    echo "<td>{$post_tags}</td>";
-
-    echo "<td>{$post_date}</td>";
-    echo "<td><a href='../post.php?p_id={$post_id}'>View Post</a></td>";
-    echo "<td><a href='posts.php?source=edit_post&p_id={$post_id}'>Edit</a></td>";
-    echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to delete?'); \" href='posts.php?delete={$post_id}'>Delete</a></td>";
+    echo "<td><a href='venues.php?source=edit_venue&v_id={$venue_id}'>Edit</a></td>";
+    echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to delete?'); \" href='venues.php?delete={$venue_id}'>Delete</a></td>";
     echo "<tr>";
 
-    }
+}
 
 ?>
 
-<?php delete_posts(); ?>
+<?php //delete_posts(); ?>
 
   </tbody>
 </table>

@@ -11,6 +11,8 @@
 
     <title>BackRoads Tour | Home</title>
 
+    <link rel="stylesheet" href="admin/css/summernote.css">
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
