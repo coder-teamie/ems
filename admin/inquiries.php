@@ -25,6 +25,7 @@
     <th>Name of Client</th>
     <th>Email</th>
     <th>Concern</th>
+    <th>Inquiry Status</th>
     <th>Inquiry Date</th>
     <th>Resolved</th>
     <th>Delete</th>
@@ -42,6 +43,7 @@
   $customer_name = $row['customer_name'];
   $customer_email = $row['customer_email'];
   $customer_inquiry = $row['customer_inquiry'];
+  $inquiry_status = $row['inquiry_status'];
   $inquiry_date = $row['inquiry_date'];
 
   echo "<tr>";
@@ -49,11 +51,12 @@
     echo "<td>$customer_name</td>";
     echo "<td>$customer_email</td>";
     echo "<td>$customer_inquiry</td>";
+    echo "<td>$inquiry_status</td>";
     echo "<td>$inquiry_date</td>";
     
 # || ACTION BUTTONS ||
-  echo "<td><a href='users.php?resolved_inquiry={$inquiry_id}'>Resolved</a></td>";
-  echo "<td><a href='users.php?delete={$inquiry_id}'>Delete</a></td>";
+  echo "<td><a href='inquiries.php?resolved_inquiry={$inquiry_id}'>Resolved</a></td>";
+  echo "<td><a href='inquiries.php?delete={$inquiry_id}'>Delete</a></td>";
   echo "</tr>";
   }
 ?>
@@ -62,6 +65,19 @@
 </tr>
 </tbody>
 </table>
+
+<?php
+
+if(isset($_GET['resolved_inquiry'])){
+  $inq_id = $_GET['resolved_inquiry'];
+
+  $query = "UPDATE inquiries SET inquiry_status = 'resolved' WHERE inquiry_id = $inq_id ";
+  $inquiry_status_query = mysqli_query($connection, $query);
+
+  header("Location: inquiries.php");
+}
+
+?>
 
 <!-- || SWITCH TO ADMIN || -->
 <?php switch_to_admin(); ?>

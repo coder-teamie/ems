@@ -34,12 +34,12 @@
 
     if(!empty($user_password)){
       
-      $query_password = "SELECT * FROM user_password WHERE user_id = $the_user_id ";
-      $get_user_query = mysqli_query($connection, $query_password);
+      $query = "SELECT user_password FROM users WHERE user_id = $the_user_id ";
+      $edit_user_password_query = mysqli_query($connection, $query);
 
-      confirm_query($get_user_query);
+      confirm_query($edit_user_password_query);
 
-      $row = mysqli_fetch_array($get_user_query);
+      $row = mysqli_fetch_array($edit_user_password_query);
       $db_user_password = $row['user_password'];
       
 
@@ -63,7 +63,7 @@
 
     header("Location: users.php");
 
-    echo "User Updated" . " <a href='users.php'><strong>View Users?</strong></a>";
+    echo "User Updated!" . " <a href='users.php'><strong>View Users?</strong></a>";
     }
 
   }

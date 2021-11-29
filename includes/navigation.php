@@ -39,7 +39,7 @@
 
     <?php
 
-    $query = "SELECT * FROM categories LIMIT 5";
+    $query = "SELECT * FROM categories LIMIT 4";
     $select_all_categories = mysqli_query($connection, $query);
 
     while($row = mysqli_fetch_array($select_all_categories)){
@@ -56,9 +56,6 @@
         </li>
         <li>
             <a href="registration.php">Registration</a>
-        </li>
-        <li >
-            <a href="./admin/bookings.php?source=add_booking" class="book-now">Book Now</a>
         </li>
     </ul>
 </div>
