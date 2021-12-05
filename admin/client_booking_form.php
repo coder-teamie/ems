@@ -2,9 +2,11 @@
 <?php ob_start(); ?>
 
 <?php session_start(); ?>
-<?php include "../functions.php"; ?>
+<?php include "./functions.php"; ?>
 
 <!-- || HEADER || -->
+<?php include "../includes/db.php" ?>
+
 
 <?php
 $mysqli = new mysqli('localhost', 'root', '', 'ems');
@@ -58,7 +60,7 @@ if(isset($_GET['date'])){
       confirm_query($create_booking_query);
       $bookings[] = $timeslot;
 
-      $message = "<div class='alert alert-success' style='margin-top: 2rem!important;'>Booking Created. <a href='./bookings.php' style='font-weight: bold;'> View Bookings </a></div>";
+      $message = "<div class='alert alert-success' style='margin-top: 2rem!important;'>Booking Created. <a href='#' style='font-weight: bold;'> View Bookings </a></div>";
     }
 	}
 
@@ -102,16 +104,16 @@ if(isset($_GET['date'])){
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title Page</title>
+    <title>EMS || Booking Form</title>
 
     <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></link> -->
 
     <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     
     <!-- Custom CSS -->
-    <link href="../css/sb-admin.css" rel="stylesheet">
+    <link href="css/sb-admin.css" rel="stylesheet">
     
     <!-- Custom Fonts -->
     <script src="https://kit.fontawesome.com/2cd1fc15ff.js" crossorigin="anonymous"></script>
@@ -170,7 +172,10 @@ if(isset($_GET['date'])){
   <body>
     <div class="grid-container">
 		<div id="wrapper" class="grid-1" style="margin-bottom: 7rem;">
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<?php //include "includes/client_admin_navigation.php" ?>
+  <!-- <div id="wrapper"> -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -220,6 +225,13 @@ if(isset($_GET['date'])){
 </div>
     <!-- /.navbar-collapse -->
 </nav>
+
+
+<!-- Page Heading -->
+
+<div class="page-wrapper">
+
+    <div class="container-fluid">
 	</div>
 <div class="container grid-2">
   <div class="row">
@@ -261,7 +273,7 @@ if(isset($_GET['date'])){
 <div class="modal-content">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h4 class="modal-title">Booking <span id="slot" class="bg-success"></span></h4>
+    <h4 class="modal-title">Booking <span id="slot" class="btn-success"></span></h4>
   </div>
   <div class="modal-body">
     <div class="row">
@@ -409,13 +421,5 @@ if(isset($_GET['date'])){
         $("#myModal").modal("show");
       })
     </script>
-    	<!-- jQuery -->
-    <script src="../js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
-
-    <!-- Js -->
-    <script src="../js/scripts.js"></script>
   </body>
 </html>

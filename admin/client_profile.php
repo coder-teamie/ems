@@ -74,7 +74,7 @@ else {
   <form action="" method="post" enctype="multipart/form-data">
 
   <?php if(isset($_POST['edit_user'])){
-    echo "<div class='alert alert-success'>User Profile Updated .  <a href='users.php'><strong>View Users?</strong></a></div>";
+    echo "<div class='alert alert-success'>User Profile Updated.</div>";
   } ?>
   
     <div class="form-group">

@@ -107,7 +107,7 @@ function build_calendar($month, $year){
 						$calendar.="<td class='$today'><h4>$currentDay</h4> <a href='#' class='btn btn-danger btn-xs'>All Booked</a></td>";
 					}else{
 						$availableslots = 13 - $totalbookings;
-						$calendar.="<td class='$today'><h4>$currentDay</h4> <a href='includes/client_booking_form.php?date=".$date."' class='btn btn-success btn-xs'>Book</a><small><i>$availableslots slots left</i></small></td>";
+						$calendar.="<td class='$today'><h4>$currentDay</h4> <a href='client_booking_form.php?date=".$date."' class='btn btn-success btn-xs'>Book</a><small><i>$availableslots slots left</i></small></td>";
 					}
 				}
 				
@@ -211,7 +211,7 @@ function checkSlots($mysqli, $date){
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="text-transform: capitalize;"><i class="fa fa-user"></i> <?php echo $_SESSION['username']; ?> <b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                    <a href="client_profile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
