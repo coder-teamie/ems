@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2021 at 12:09 AM
+-- Generation Time: Dec 05, 2021 at 03:30 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -47,11 +47,6 @@ CREATE TABLE `bookings` (
 --
 
 INSERT INTO `bookings` (`booking_id`, `user_firstname`, `user_lastname`, `user_role`, `user_email`, `catering`, `booking_status`, `event_category`, `event_venue`, `event_date`, `event_package`, `timeslot`) VALUES
-(7, 'Chin', 'Chan', 'employee', 'chinchan@gmail.com', 'NO', 'Approved', '3', '4', '2021-11-20', 'Premium', ''),
-(8, 'Jackie', 'Chan', 'employee', 'jackie@gmail.com', 'no', 'Approved', '3', '3', '2021-11-23', 'Basic', ''),
-(9, 'Jacob', 'Advent', 'customer', 'jacob@gmail.com', 'yes', 'Pending', '4', '2', '2021-11-26', 'Premium', ''),
-(10, 'Daniel', 'Rose', 'customer', 'dan@dan.com', 'yes', 'Pending', '2', '4', '2021-12-17', 'Premium', ''),
-(11, 'Oluwatimilehin', 'Akinnubi', 'customer', 'timmieprince@gmail.com', 'yes', 'Pending', '1', '1', '2021-12-15', 'Basic', ''),
 (12, 'Peter', 'James', 'employee', 'peterjames@gmail.com', 'yes', 'Pending', '4', '3', '2021-12-15', 'Basic', '10:00AM-11:00AM'),
 (13, 'Jacobo', 'Ileyi', 'customer', 'jake@gmail.com', 'no', 'Pending', '3', '4', '2021-12-04', 'Basic', '14:00PM-15:00PM'),
 (14, 'Daniel', 'Rose', 'customer', 'dan@dan.com', 'no', 'Approved', '1', '2', '2021-12-04', 'Basic', '13:00PM-14:00PM'),
@@ -59,11 +54,15 @@ INSERT INTO `bookings` (`booking_id`, `user_firstname`, `user_lastname`, `user_r
 (16, 'Jacobo', 'Francis', 'customer', 'jake@gmail.com', 'yes', 'Pending', '1', '2', '2021-12-26', 'Deluxe', '15:00PM-16:00PM'),
 (17, 'Peter', 'James', 'customer', 'peterjames@gmail.com', 'yes', 'Pending', '1', '1', '2022-02-02', 'Deluxe', '08:00AM-09:00AM'),
 (18, 'Test', 'User', 'admin', 'test@test.com', 'yes', 'Pending', '3', '4', '2022-02-02', 'Deluxe', '16:00PM-17:00PM'),
-(19, 'Oluwatimilehin', 'Akinnubi', 'customer', 'timmieprince@gmail.com', 'yes', 'Pending', '1', '1', '2021-12-04', 'Premium', '11:00AM-12:00PM'),
+(19, 'Oluwatimilehin', 'Akinnubi', 'customer', 'timmieprince@gmail.com', 'yes', 'Approved', '1', '1', '2021-12-04', 'Premium', '11:00AM-12:00PM'),
 (20, 'Oluwatimilehin', 'Akinnubi', 'customer', 'timmieprince@gmail.com', 'yes', 'Pending', '1', '1', '2021-12-04', 'Premium', '16:00PM-17:00PM'),
 (21, 'Oluwatimilehin', 'Akinnubi', 'customer', 'timmieprince@gmail.com', 'yes', 'Pending', '5', '1', '2021-12-04', 'Basic', '15:00PM-16:00PM'),
-(22, 'Peter', 'James', 'customer', 'peterjames@gmail.com', 'yes', 'Pending', '1', '1', '2021-12-08', 'Deluxe', '09:00AM-10:00AM'),
-(23, 'Oluwatimilehin', 'Akinnubi', 'employee', 'timmieprince@gmail.com', 'yes', 'Pending', '1', '1', '2021-12-08', 'Premium', '10:00AM-11:00AM');
+(22, 'Peter', 'James', 'customer', 'peterjames@gmail.com', 'yes', 'Approved', '1', '1', '2021-12-08', 'Deluxe', '09:00AM-10:00AM'),
+(23, 'Oluwatimilehin', 'Akinnubi', 'employee', 'timmieprince@gmail.com', 'yes', 'Pending', '1', '1', '2021-12-08', 'Premium', '10:00AM-11:00AM'),
+(24, 'Peter', 'James', 'customer', 'peterjames@gmail.com', 'yes', 'Approved', '1', '1', '2021-12-08', 'Basic', '16:00PM-17:00PM'),
+(25, 'Jacobo', 'Ileyi', 'employee', 'jake@gmail.com', 'yes', 'Approved', '5', '2', '2022-02-02', 'Deluxe', '19:00PM-20:00PM'),
+(26, 'Daniel', 'Rose', 'customer', 'dan@dan.com', 'yes', 'Pending', '1', '1', '2021-12-15', 'Deluxe', '14:00PM-15:00PM'),
+(27, 'Peter', 'James', 'customer', 'peterjames@gmail.com', 'yes', 'Pending', '1', '1', '2021-12-16', 'Deluxe', '08:00AM-09:00AM');
 
 -- --------------------------------------------------------
 
@@ -246,7 +245,7 @@ ALTER TABLE `venue`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `booking_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `booking_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `categories`
