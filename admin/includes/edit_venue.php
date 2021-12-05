@@ -44,8 +44,7 @@
     $update_venue = mysqli_query($connection,$query);
     confirm_query($update_venue);
 
-    echo "<p class='bg-success'>Venue Updated.<a href='./venues.php' style='font-weight: bold;'> View all Venues</a>
-    </p>";
+    echo "<div class='alert alert-success'>Venue Updated.<a href='./venues.php' style='font-weight: bold;'> View all Venues</a></div>";
   }
 
 ?>

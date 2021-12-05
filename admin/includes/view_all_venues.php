@@ -90,7 +90,7 @@
     echo "<td>{$venue_id}</td>";
     echo "<td>{$venue_title}</td>";
 
-    echo "<td><img width='100' height='80' src='../images/{$venue_image}' alt='image'></td>";
+    echo "<td><img width='100' src='../images/{$venue_image}' alt='image'></td>";
     echo "<td>{$venue_caption}</td>";
 
     echo "<td><a href='venues.php?source=edit_venue&v_id={$venue_id}'>Edit</a></td>";

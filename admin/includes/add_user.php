@@ -18,7 +18,7 @@
     $create_user_query = mysqli_query($connection, $query);
     confirm_query($create_user_query);
 
-    echo "User Created : " . " " . "<a class='btn btn-primary' href='users.php'>View Users</a>";
+    echo "<div class='alert alert-success'>User Created : " . " " . "<a class='btn btn-primary' href='users.php'>View Users</a></div>";
   }
 
 ?>

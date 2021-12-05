@@ -24,8 +24,7 @@
     # || GET LATEST ID OF POST FROM DB ||
     $the_post_id = mysqli_insert_id($connection);
 
-    echo "<p class='bg-success'>Post Created. <a style='font-weight: bold;' href='../post.php?p_id=$the_post_id'>View Post</a> or <a href='./posts.php' style='font-weight: bold;'> Add More Posts</a>
-    </p>";
+    echo "<div class='alert alert-success'>Post Created. <a style='font-weight: bold;' href='../post.php?p_id=$the_post_id'>View Post</a> or <a href='./posts.php' style='font-weight: bold;'> Add More Posts</a></div>";
   }
 
 ?>

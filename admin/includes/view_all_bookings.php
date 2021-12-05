@@ -10,13 +10,13 @@
     <th>Category</th>
     <th>Venue</th>
     <th>Date</th>
-    <th>Time</th>
-    <th>Duration</th>
+    <th>Timeslot</th>
+    <!-- <th>Duration</th> -->
     <th>Package</th>
     <th>Status</th>
     <th>Approve</th>
     <th>Reject</th>
-    <th>Completed</th>
+    <!-- <th>Completed</th> -->
     <th>Edit</th>
     <th>Delete</th>
   </tr>
@@ -38,8 +38,8 @@
     $event_category_id = $row['event_category'];
     $event_venue_id = $row['event_venue'];
     $event_date = $row['event_date'];
-    $event_time = $row['event_time'];
-    $event_duration = $row['event_duration'];
+    $event_time = $row['timeslot'];
+    // $event_duration = $row['event_duration'];
     $event_package = $row['event_package'];
   
   
@@ -72,7 +72,7 @@
 
     echo "<td>{$event_date}</td>";
     echo "<td>{$event_time}</td>";
-    echo "<td>{$event_duration}</td>";
+    // echo "<td>{$event_duration}</td>";
     echo "<td>{$event_package}</td>";
 
 
@@ -86,11 +86,11 @@
     }
     
 # || ACTION BUTTONS ||
-  echo "<td><a href='./bookings.php?approve_booking={$booking_id}'>Approve</a></td>";
-  echo "<td><a href='./bookings.php?reject_booking={$booking_id}'>Reject</a></td>";
-  echo "<td><a href='./bookings.php?complete_booking={$booking_id}'>Completed</a></td>";
+  echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to approve?'); \" href='./bookings.php?approve_booking={$booking_id}'>Approve</a></td>";
+  echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to reject?'); \" href='./bookings.php?reject_booking={$booking_id}'>Reject</a></td>";
+  // echo "<td><a href='./bookings.php?complete_booking={$booking_id}'>Completed</a></td>";
   echo "<td><a href='./bookings.php?source=edit_booking&b_id={$booking_id}'>Edit</a></td>";
-  echo "<td><a href='./bookings.php?delete={$booking_id}'>Delete</a></td>";
+  echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to delete?'); \" href='./bookings.php?delete={$booking_id}'>Delete</a></td>";
   echo "</tr>";
   }
 ?>
@@ -106,7 +106,7 @@
 <?php reject_booking(); ?>
 
 <!-- || COMPLETE BOOKING || -->
-<?php complete_booking(); ?>
+<?php //complete_booking(); ?>
 
 <!--  || EDIT BOOKING || -->
 <?php  ?>

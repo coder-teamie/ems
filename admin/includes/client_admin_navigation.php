@@ -39,8 +39,8 @@
       <a href="javascript:;" data-toggle="collapse" data-target="#bookings"><i class="fa fa-fw fa-arrows-v"></i> Bookings <i class="fa fa-fw fa-caret-down"></i></a>
       <ul id="bookings" class="collapse">
         <li>
-            <a href="./client_bookings.php?source=add_booking">Add Bookings</a>
-            </li>
+            <a href="client_calendar.php"><i class="far fa-fw fa-calendar-alt"></i> Calender</a>
+        </li>
       </ul>
 </li>
 <li>

@@ -195,7 +195,7 @@ $customer_count = mysqli_num_rows($select_all_customers);
 
 ?>
 
-<div class="row">
+<div class="row" style="font-weight: bold;">
 
 <script type="text/javascript">
     google.charts.load('current', {'packages':['bar']});

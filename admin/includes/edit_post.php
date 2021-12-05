@@ -58,8 +58,7 @@ $select_posts_by_id = mysqli_query($connection, $query);
     $update_post = mysqli_query($connection,$query);
     confirm_query($update_post);
 
-    echo "<p class='bg-success'>Post Updated. <a style='font-weight: bold;' href='../post.php?p_id=$the_post_id'>View Post</a> or <a href='./posts.php' style='font-weight: bold;'> Edit More Posts</a>
-    </p>";
+    echo "<div class='alert alert-success'>Post Updated. <a style='font-weight: bold;' href='../post.php?p_id=$the_post_id'>View Post</a> or <a href='./posts.php' style='font-weight: bold;'> Edit More Posts</a></div>";
   }
 
 ?>

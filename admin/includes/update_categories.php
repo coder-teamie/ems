@@ -29,6 +29,8 @@ if(isset($_GET['edit'])){
     if(!$update_category){
       die("Query Failed" . mysqli_error($connection));
     }
+
+    echo "<div class='alert alert-success'>Category Succesfully Updated</div>";
   }
 ?>
 

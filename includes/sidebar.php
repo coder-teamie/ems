@@ -1,3 +1,21 @@
+<style>
+  .modal-content{
+    width: 50rem !important;
+    margin: 0 auto !important;
+    margin-top: 15rem !important;
+    height: 55rem !important;
+  }
+  .form-img{
+    width: 40rem !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  /* form{
+    display: grid !important;
+    margin: 0 auto !important;
+  } */
+</style>
+
 <div class="col-md-4">
     <!-- Blog Search Well -->
     <div class="well">
@@ -15,24 +33,46 @@
         </form> 
         <!-- /.input-group -->
 </div>
+<div class="well">
+  <button type="submit" class="btn btn-primary login" > Log In Here </button>
+</div>
 
-    <!-- Log in FORM -->
-    <div class="well">
+    <div id="myModal" class="modal fade" role="dialog">
+<div class="modal-dialog">
+
+    <!-- Modal content-->
+<div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">Login</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
         <!-- <h4>Log in</h4> -->
-        <img src="images/admin-login.jpg" alt="login image" width="100%">
+        <img src="images/admin-login.jpg" class="form-img" alt="login image">
 
         <form action="./includes/login.php" method="post">
         <div class="form-group">
             <input type="text" name="username" class="form-control" placeholder="Enter username">
-          </div>
-          <div class="input-group">
+        </div>
+        <div class="input-group">
             <input type="password" name="password" class="form-control" placeholder="Enter Password">
             <span class="input-group-btn">
-              <button type="submit" class="btn btn-primary" name="login" > Log In </button>
+            <button type="submit" class="btn btn-primary" name="login" > Log In </button>
             </span>
-          </div>
+        </div>
         </form> 
         <!-- /.input-group -->
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+    <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+    </div>
+</div>
+
+</div>
 </div>
 
 <!-- Blog Categories Well -->
@@ -69,3 +109,12 @@
 <?php include "widget.php"; ?>
 
 </div>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Script for login modal -->
+<script>
+    $(".login").click(function(){
+        $("#myModal").modal("show");
+    })
+</script>

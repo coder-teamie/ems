@@ -54,8 +54,7 @@ $select_bookings_by_id = mysqli_query($connection, $query);
     $update_booking = mysqli_query($connection,$query);
     confirm_query($update_booking);
 
-    echo "<p class='bg-success'>Booking Updated. </a> or <a href='./bookings.php' style='font-weight: bold;'> View Booking / Edit More Bookings </a>
-    </p>";
+    echo "<div class='alert alert-success'>Booking Updated. </a> or <a href='./bookings.php' style='font-weight: bold;'> View Booking / Edit More Bookings </a></div>";
   }
 
 ?>
@@ -193,22 +192,14 @@ $select_bookings_by_id = mysqli_query($connection, $query);
         if($event_duration == "1-Hour|Mininum|$500"){
           echo "<option value='2-Hours|$700'>2 Hours | $700</option>";
           echo "<option value='4-Hours|$850'>4 Hours | $850</option>";
-          echo "<option value='6-Hours|Maximum|$1200'>6 Hours Maximum | $1200</option>";
         }
         else if($event_duration == "2-Hours|$700"){
           echo "<option value='1-Hour|Mininum|$500'>1 Hour Mininum | $500</option>";
           echo "<option value='4-Hours|$850'>4 Hours | $850</option>";
-          echo "<option value='6-Hours|Maximum|$1200'>6 Hours Maximum | $1200</option>";
-        }
-        else if($event_duration == "4-Hours|$850"){
-          echo "<option value='1-Hour|Mininum|$500'>1 Hour Mininum | $500</option>";
-          echo "<option value='2-Hours|$700'>2 Hours | $700</option>";
-          echo "<option value='6-Hours|Maximum|$1200'>6 Hours Maximum | $1200</option>";
         }
         else{
           echo "<option value='1-Hour|Mininum|$500'>1 Hour Mininum | $500</option>";
           echo "<option value='2-Hours|$700'>2 Hours | $700</option>";
-          echo "<option value='4-Hours|$850'>4 Hours | $850</option>";
         }
       ?>
     </select>
@@ -222,15 +213,15 @@ $select_bookings_by_id = mysqli_query($connection, $query);
       <?php
       if($event_package == 'Basic'){
 
-        echo "<option value='Premium'>Premium - 3 Hours + 1 Hour (Everything in Basic + Red Carpet) | $2500 </option>";
+        echo "<option value='Premium'>Premium - 2 Hours + 1 Hour (Everything in Basic + Red Carpet) | $2500 </option>";
         echo "<option value='Deluxe'>Deluxe - 4 Hours + 1 Hour (Everything in Premium + Valet Parking + Extreme Security Protocol) | $3000 </option>";
       } 
       else if($event_package == "Premium"){
-        echo " <option value='Basic'>Basic - 2 Hours + 30mins (Catering Service + Event Host + Video Recording) | $2000 </option>";
+        echo " <option value='Basic'>Basic - 1 Hour + 30mins (Catering Service + Event Host + Video Recording) | $2000 </option>";
         echo "<option value='Deluxe'>Deluxe - 4 Hours + 1 Hour (Everything in Premium + Valet Parking + Extreme Security Protocol) | $3000 </option>";
       } else{
-        echo " <option value='Basic'>Basic - 2 Hours + 30mins (Catering Service + Event Host + Video Recording) | $2000 </option>";
-        echo "<option value='Premium'>Premium - 3 Hours + 1 Hour (Everything in Basic + Red Carpet) | $2500 </option>";
+        echo " <option value='Basic'>Basic - 1 Hour + 30mins (Catering Service + Event Host + Video Recording) | $2000 </option>";
+        echo "<option value='Premium'>Premium - 2 Hours + 1 Hour (Everything in Basic + Red Carpet) | $2500 </option>";
       }
       ?>
     </select>

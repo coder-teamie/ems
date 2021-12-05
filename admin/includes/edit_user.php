@@ -61,9 +61,9 @@
     $edit_user_query = mysqli_query($connection,$query);
     confirm_query($edit_user_query);
 
-    header("Location: users.php");
+    // header("Location: users.php");
 
-    echo "User Updated!" . " <a href='users.php'><strong>View Users?</strong></a>";
+    // echo "User Updated!" . " <a href='users.php'><strong>View Users?</strong></a>";
     }
 
   }
@@ -76,7 +76,9 @@
 ?>
 
 <form action="" method="post" enctype="multipart/form-data">
-  
+  <?php if(isset($_POST['edit_user'])){
+    echo "<div class='alert alert-success'>User Profile Updated .  <a href='users.php'><strong>View Users?</strong></a></div>";
+  } ?>
     <div class="form-group">
     <label for="user_firstname">Firstname</label>
     <input type="text" value="<?php echo $user_firstname; ?>" name="user_firstname" class="form-control">

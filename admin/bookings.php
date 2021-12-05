@@ -1,3 +1,10 @@
+  <?php
+
+if(isset($_GET['date'])){
+  $date = $_GET['date'];
+}
+?>
+
 <?php include "./includes/admin_header.php"; ?>
 
     <div id="wrapper">
@@ -17,6 +24,7 @@
     <small></small>
   </h1>
 
+
 <?php
   if(isset($_GET['source'])){
       $source = $_GET['source'];
@@ -26,7 +34,7 @@
 
   switch($source){
     case 'add_booking':
-      include "includes/add_booking.php";
+        include "includes/add_booking.php";
       break;
 
     case 'edit_booking':
@@ -42,22 +50,16 @@
 
 </div>
 </div>
-
-
-
-
-
-
 </div>
-    <!-- /.row -->
+<!-- /.row -->
 
 </div>
 <!-- /.container-fluid -->
 
-        </div>
-        <!-- /#page-wrapper -->
+</div>
+<!-- /#page-wrapper -->
 
-    </div>
-    <!-- /#wrapper -->
+</div>
+<!-- /#wrapper -->
 
 <?php include "./includes/admin_footer.php" ?>

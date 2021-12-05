@@ -55,8 +55,6 @@ if(isset($_POST['edit_user'])){
 
     $edit_profile_query  = mysqli_query($connection, $query);
     confirm_query($edit_profile_query);
-
-    echo "<p style='font-weight: bolder;'> Profile Updated! </p>";
   }
 }
 }
@@ -74,6 +72,10 @@ else {
   <div class="container-fluid">
 
   <form action="" method="post" enctype="multipart/form-data">
+
+  <?php if(isset($_POST['edit_user'])){
+    echo "<div class='alert alert-success'>User Profile Updated .  <a href='users.php'><strong>View Users?</strong></a></div>";
+  } ?>
   
     <div class="form-group">
     <label for="user_firstname">Firstname</label>

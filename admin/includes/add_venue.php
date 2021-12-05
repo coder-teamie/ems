@@ -16,8 +16,7 @@
     # || GET LATEST ID OF POST FROM DB ||
     // $the_post_id = mysqli_insert_id($connection);
 
-    echo "<p class='bg-success'>Venue Created. <a href='./venues.php' style='font-weight: bold;'> View all Venues</a>
-    </p>";
+    echo "<div class='alert alert-success'>Venue Created. <a href='./venues.php' style='font-weight: bold;'> View all Venues</a></div>";
   }
 
 ?>

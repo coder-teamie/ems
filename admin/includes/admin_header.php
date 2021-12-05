@@ -38,7 +38,7 @@
 
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/2cd1fc15ff.js" crossorigin="anonymous"></script>
 
 
 
