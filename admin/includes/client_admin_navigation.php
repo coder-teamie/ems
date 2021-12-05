@@ -67,6 +67,34 @@
                     <small style="text-transform: capitalize;"><?php echo $_SESSION['username']; ?></small>
                 </h1>
 
+                <table class="table table-bordered table-hover">
+          <thead>
+          <tr>
+            <th>Booking Id</th>
+            <th>Venue</th>
+            <th>Catering</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Timeslot</th>
+            <th>Package</th>
+            <th>Status</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>BD12</strong></td>
+                <td>Crystal Ball Room (200 - 300 Pax)</td>
+                <td>Yes</td>
+                <td>Product Launch</td>
+                <td>2021-12-16</td>
+                <td>08:00AM-09:00AM</td>
+                <td>Deluxe</td>
+                <td>Pending</td>
+                <td><a href='#'>Edit</a></td>
+            </tr>
+        </tbody>
+        </table>
             </div>
         </div>
         <!-- /.row -->
