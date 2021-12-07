@@ -94,14 +94,8 @@ function delete_booking () {
 }
 
 # || DELETING USERS ||
-
 function delete_user () {
   global $connection;
-  // if(isset($_SESSION['user_role'])){
-
-    // if($_SESSION['user_role'] == 'admin'){
-    
-
     if(isset($_GET['delete'])){
     $delete_user_id = mysqli_real_escape_string($connection, $_GET['delete']);
     
@@ -110,8 +104,6 @@ function delete_user () {
   
     header("Location: users.php");
     }
-  // }
-  // }
 }
 
 # || SWITCH TO ADMIN ||

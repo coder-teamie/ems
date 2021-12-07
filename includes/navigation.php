@@ -51,9 +51,14 @@
 
 ?>
 
-        <li>
-            <a href="./admin/index.php">Admin</a>
-        </li>
+<?php 
+if(isset($_SESSION['user_role'])){
+
+    echo "<li>";
+        echo "<a href='./admin/index.php'>Admin</a>";
+    echo "</li>";
+} 
+?>
         <li>
             <a href="registration.php">Registration</a>
         </li>

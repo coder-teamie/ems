@@ -33,11 +33,15 @@
         </form> 
         <!-- /.input-group -->
 </div>
-<div class="well">
-  <button type="submit" class="btn btn-primary login" > Log In Here </button>
-</div>
 
-    <div id="myModal" class="modal fade" role="dialog">
+<div class="well">
+  <?php  if(isset($_SESSION['user_role'])): ?>
+        <h4>Logged in as <?php echo $_SESSION['username'] ?></h4>
+        <a href="includes/logout.php" class="btn btn-primary">Log Out</a>
+  <?php else: ?>
+  <button type="submit" class="btn btn-primary login" > Log In Here </button>
+
+<div id="myModal" class="modal fade" role="dialog">
 <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -64,19 +68,20 @@
         </div>
         </form> 
         <!-- /.input-group -->
-            </div>
-        </div>
+      </div>
     </div>
-    <div class="modal-footer">
-    <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  </div>
 </div>
-
 </div>
+</div>
+<?php  endif; ?>
 </div>
 
 <!-- Blog Categories Well -->
-  <div class="well">
+<div class="well">
 
 <?php
 

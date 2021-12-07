@@ -32,6 +32,7 @@ if(isset($_GET['date'])){
   if(isset($_POST['create_booking'])){
     $user_firstname = escape($_POST['user_firstname']);
     $user_lastname = escape($_POST['user_lastname']);
+    $username = escape($_POST['username']);
     $user_role = escape($_POST['user_role']);
     // $post_status = escape($_POST['username']);
     $user_email = escape($_POST['user_email']);
@@ -53,14 +54,14 @@ if(isset($_GET['date'])){
       $message = "<div class='alert alert-danger' style='margin-top: 2rem!important;'>Already Booked! Check Another Timeslot</div>";
         
 		} else{
-      $query = "INSERT INTO bookings(user_firstname, user_lastname, user_role, user_email, catering, booking_status, event_category, event_venue, event_date, event_package, timeslot) ";
-      $query .= "VALUES('{$user_firstname}','{$user_lastname}','{$user_role}','{$user_email}','{$catering}', 'Pending', '{$event_category}','{$event_venue}','{$date}','{$event_package}', '{$timeslot}' )";
+      $query = "INSERT INTO bookings(user_firstname, user_lastname, username, user_role, user_email, catering, booking_status, event_category, event_venue, event_date, event_package, timeslot) ";
+      $query .= "VALUES('{$user_firstname}','{$user_lastname}','{$username}','{$user_role}','{$user_email}','{$catering}', 'Pending', '{$event_category}','{$event_venue}','{$date}','{$event_package}', '{$timeslot}' )";
 
       $create_booking_query = mysqli_query($connection, $query);
       confirm_query($create_booking_query);
       $bookings[] = $timeslot;
 
-      $message = "<div class='alert alert-success' style='margin-top: 2rem!important;'>Booking Created. <a href='#' style='font-weight: bold;'> View Bookings </a></div>";
+      $message = "<div class='alert alert-success' style='margin-top: 2rem!important;'>Booking Created. <a href='index.php' style='font-weight: bold;'> View Bookings </a></div>";
     }
 	}
 
@@ -285,20 +286,22 @@ if(isset($_GET['date'])){
           </div>
           <div class="form-group">
             <label for="user_firstname">Firstname</label>
-            <input type="text" name="user_firstname" class="form-control">
+            <input type="text" value="<?php echo $_SESSION['user_firstname'] ?>" readonly name="user_firstname" class="form-control">
           </div>
           
           <div class="form-group">
             <label for="user_lastname">Lastname</label>
-            <input type="text" name="user_lastname" class="form-control">
+            <input type="text" value="<?php echo $_SESSION['user_lastname'] ?>" readonly name="user_lastname" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" value="<?php echo $_SESSION['username'] ?>" readonly name="username" class="form-control">
           </div>
 
           <div class="form-group">
             <label for="user_role">User Role: </label>
             <select name="user_role" class="form-control" id="">
-              <option value="n/a">--Select Options--</option>
-              <option value="admin">Admin</option>
-              <option value="employee">Employee</option>
               <option value="customer">Customer</option>
             </select>
           </div>

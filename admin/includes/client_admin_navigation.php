@@ -1,3 +1,6 @@
+<?php $connection = mysqli_connect('localhost', 'root', '', 'ems'); ?>
+
+<?php //session_start(); ?>
 <div id="wrapper">
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -20,7 +23,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="text-transform: capitalize;"><i class="fa fa-user"></i> <?php echo $_SESSION['username']; ?> <b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                    <a href="./client_profile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
@@ -67,9 +70,9 @@
                     <small style="text-transform: capitalize;"><?php echo $_SESSION['username']; ?></small>
                 </h1>
 
-                <table class="table table-bordered table-hover">
-          <thead>
-          <tr>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
             <th>Booking Id</th>
             <th>Venue</th>
             <th>Catering</th>
@@ -79,24 +82,81 @@
             <th>Package</th>
             <th>Status</th>
             <th>Edit</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>BD12</strong></td>
-                <td>Crystal Ball Room (200 - 300 Pax)</td>
-                <td>Yes</td>
-                <td>Product Launch</td>
-                <td>2021-12-16</td>
-                <td>08:00AM-09:00AM</td>
-                <td>Deluxe</td>
-                <td>Pending</td>
-                <td><a href='#'>Edit</a></td>
-            </tr>
+        </tr>
+    </thead>
+<tbody>
+
+<?php
+if(isset($_SESSION['user_role'])){
+
+    $username = $_SESSION['username'];
+    
+    // $username_query = "SELECT * FROM users WHERE username = '{$username}' ";
+    // $get_username = mysqli_query($connection, $username_query);
+    
+    // confirm_query($get_username);
+    
+    // $row = mysqli_fetch_assoc($get_username);
+    // $username = $row['username'];
+    
+    
+    $query = "SELECT * FROM bookings WHERE username = '{$username}' ";
+    $display_booking_info = mysqli_query($connection, $query);
+    
+    confirm_query($display_booking_info);
+    
+    while($row = mysqli_fetch_assoc($display_booking_info)){
+        $booking_id = $row['booking_id'];
+        $event_venue_id = $row['event_venue'];
+        $catering = $row['catering'];
+        $event_category = $row['event_category'];
+        $event_date = $row['event_date'];
+        $timeslot = $row['timeslot'];
+        $event_package = $row['event_package'];
+        $booking_status = $row['booking_status'];
+        
+        echo "<tr>";
+        
+        echo "<td><strong>{$booking_id}</strong></td>";
+
+
+        $venue_query = "SELECT * FROM venue WHERE venue_id = {$event_venue_id} ";
+        $select_venue = mysqli_query($connection, $venue_query);
+
+        while($row = mysqli_fetch_array($select_venue)){
+        $venue_id = $row['venue_id'];
+        $venue_title = $row['venue_title'];
+        echo "<td>{$venue_title}</td>";
+        }
+
+
+        echo "<td>{$catering}</td>";
+
+
+        $query = "SELECT * FROM categories WHERE cat_id = {$event_category} ";
+        $select_category = mysqli_query($connection, $query);
+
+        while($row = mysqli_fetch_array($select_category)){
+        $cat_id = $row['cat_id'];
+        $cat_title = $row['cat_title'];
+        echo "<td>{$cat_title}</td>";
+        }
+
+
+        echo "<td>{$event_date}</td>";
+        echo "<td>{$timeslot}</td>";
+        echo "<td>{$event_package}</td>";
+        echo "<td>{$booking_status}</td>";
+        echo "<td><a href='#'>Edit</a></td>";
+        echo "</tr>";
+        
+    }
+}
+    ?>
         </tbody>
-        </table>
-            </div>
-        </div>
-        <!-- /.row -->
+    </table>
+</div>
+</div>
+<!-- /.row -->
     </div>
     </div>

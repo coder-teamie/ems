@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!-- || HEADER || -->
 <?php include "./includes/header.php"; ?>
 
