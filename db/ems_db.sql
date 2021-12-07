@@ -3,13 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2021 at 03:30 PM
+-- Generation Time: Dec 07, 2021 at 11:54 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+08:00";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -31,6 +31,7 @@ CREATE TABLE `bookings` (
   `booking_id` int(3) NOT NULL,
   `user_firstname` varchar(255) NOT NULL,
   `user_lastname` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `user_role` varchar(255) NOT NULL,
   `user_email` varchar(255) NOT NULL,
   `catering` text NOT NULL,
@@ -46,23 +47,31 @@ CREATE TABLE `bookings` (
 -- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookings` (`booking_id`, `user_firstname`, `user_lastname`, `user_role`, `user_email`, `catering`, `booking_status`, `event_category`, `event_venue`, `event_date`, `event_package`, `timeslot`) VALUES
-(12, 'Peter', 'James', 'employee', 'peterjames@gmail.com', 'yes', 'Pending', '4', '3', '2021-12-15', 'Basic', '10:00AM-11:00AM'),
-(13, 'Jacobo', 'Ileyi', 'customer', 'jake@gmail.com', 'no', 'Pending', '3', '4', '2021-12-04', 'Basic', '14:00PM-15:00PM'),
-(14, 'Daniel', 'Rose', 'customer', 'dan@dan.com', 'no', 'Approved', '1', '2', '2021-12-04', 'Basic', '13:00PM-14:00PM'),
-(15, 'Peter', 'James', 'customer', 'peterjames@gmail.com', 'yes', 'Pending', '1', '1', '2021-12-25', 'Basic', '12:00PM-13:00PM'),
-(16, 'Jacobo', 'Francis', 'customer', 'jake@gmail.com', 'yes', 'Pending', '1', '2', '2021-12-26', 'Deluxe', '15:00PM-16:00PM'),
-(17, 'Peter', 'James', 'customer', 'peterjames@gmail.com', 'yes', 'Pending', '1', '1', '2022-02-02', 'Deluxe', '08:00AM-09:00AM'),
-(18, 'Test', 'User', 'admin', 'test@test.com', 'yes', 'Pending', '3', '4', '2022-02-02', 'Deluxe', '16:00PM-17:00PM'),
-(19, 'Oluwatimilehin', 'Akinnubi', 'customer', 'timmieprince@gmail.com', 'yes', 'Approved', '1', '1', '2021-12-04', 'Premium', '11:00AM-12:00PM'),
-(20, 'Oluwatimilehin', 'Akinnubi', 'customer', 'timmieprince@gmail.com', 'yes', 'Pending', '1', '1', '2021-12-04', 'Premium', '16:00PM-17:00PM'),
-(21, 'Oluwatimilehin', 'Akinnubi', 'customer', 'timmieprince@gmail.com', 'yes', 'Pending', '5', '1', '2021-12-04', 'Basic', '15:00PM-16:00PM'),
-(22, 'Peter', 'James', 'customer', 'peterjames@gmail.com', 'yes', 'Approved', '1', '1', '2021-12-08', 'Deluxe', '09:00AM-10:00AM'),
-(23, 'Oluwatimilehin', 'Akinnubi', 'employee', 'timmieprince@gmail.com', 'yes', 'Pending', '1', '1', '2021-12-08', 'Premium', '10:00AM-11:00AM'),
-(24, 'Peter', 'James', 'customer', 'peterjames@gmail.com', 'yes', 'Approved', '1', '1', '2021-12-08', 'Basic', '16:00PM-17:00PM'),
-(25, 'Jacobo', 'Ileyi', 'employee', 'jake@gmail.com', 'yes', 'Approved', '5', '2', '2022-02-02', 'Deluxe', '19:00PM-20:00PM'),
-(26, 'Daniel', 'Rose', 'customer', 'dan@dan.com', 'yes', 'Pending', '1', '1', '2021-12-15', 'Deluxe', '14:00PM-15:00PM'),
-(27, 'Peter', 'James', 'customer', 'peterjames@gmail.com', 'yes', 'Pending', '1', '1', '2021-12-16', 'Deluxe', '08:00AM-09:00AM');
+INSERT INTO `bookings` (`booking_id`, `user_firstname`, `user_lastname`, `username`, `user_role`, `user_email`, `catering`, `booking_status`, `event_category`, `event_venue`, `event_date`, `event_package`, `timeslot`) VALUES
+(12, 'Peter', 'James', '', 'employee', 'peterjames@gmail.com', 'yes', 'Pending', '4', '3', '2021-12-15', 'Basic', '10:00AM-11:00AM'),
+(13, 'Jacobo', 'Ileyi', '', 'customer', 'jake@gmail.com', 'no', 'Pending', '3', '4', '2021-12-04', 'Basic', '14:00PM-15:00PM'),
+(14, 'Daniel', 'Rose', '', 'customer', 'dan@dan.com', 'no', 'Approved', '1', '2', '2021-12-04', 'Basic', '13:00PM-14:00PM'),
+(15, 'Peter', 'James', '', 'customer', 'peterjames@gmail.com', 'yes', 'Pending', '1', '1', '2021-12-25', 'Basic', '12:00PM-13:00PM'),
+(16, 'Jacobo', 'Francis', '', 'customer', 'jake@gmail.com', 'yes', 'Pending', '1', '2', '2021-12-26', 'Deluxe', '15:00PM-16:00PM'),
+(17, 'Peter', 'James', '', 'customer', 'peterjames@gmail.com', 'yes', 'Pending', '1', '1', '2022-02-02', 'Deluxe', '08:00AM-09:00AM'),
+(18, 'Test', 'User', '', 'admin', 'test@test.com', 'yes', 'Pending', '3', '4', '2022-02-02', 'Deluxe', '16:00PM-17:00PM'),
+(19, 'Oluwatimilehin', 'Akinnubi', '', 'customer', 'timmieprince@gmail.com', 'yes', 'Approved', '1', '1', '2021-12-04', 'Premium', '11:00AM-12:00PM'),
+(20, 'Oluwatimilehin', 'Akinnubi', '', 'customer', 'timmieprince@gmail.com', 'yes', 'Pending', '1', '1', '2021-12-04', 'Premium', '16:00PM-17:00PM'),
+(21, 'Oluwatimilehin', 'Akinnubi', '', 'customer', 'timmieprince@gmail.com', 'yes', 'Pending', '5', '1', '2021-12-04', 'Basic', '15:00PM-16:00PM'),
+(22, 'Peter', 'James', '', 'customer', 'peterjames@gmail.com', 'yes', 'Approved', '1', '1', '2021-12-08', 'Deluxe', '09:00AM-10:00AM'),
+(23, 'Oluwatimilehin', 'Akinnubi', '', 'employee', 'timmieprince@gmail.com', 'yes', 'Pending', '1', '1', '2021-12-08', 'Premium', '10:00AM-11:00AM'),
+(24, 'Peter', 'James', '', 'customer', 'peterjames@gmail.com', 'yes', 'Approved', '1', '1', '2021-12-08', 'Basic', '16:00PM-17:00PM'),
+(25, 'Jacobo', 'Ileyi', '', 'employee', 'jake@gmail.com', 'yes', 'Approved', '5', '2', '2022-02-02', 'Deluxe', '19:00PM-20:00PM'),
+(26, 'Daniel', 'Rose', '', 'customer', 'dan@dan.com', 'yes', 'Pending', '1', '1', '2021-12-15', 'Deluxe', '14:00PM-15:00PM'),
+(27, 'Peter', 'James', '', 'customer', 'peterjames@gmail.com', 'yes', 'Pending', '1', '1', '2021-12-16', 'Deluxe', '08:00AM-09:00AM'),
+(28, 'Oluwatimilehin', 'Akinnubi', '', 'customer', 'timmieprince@gmail.com', 'yes', 'Pending', '1', '1', '2021-12-08', 'Premium', '17:00PM-18:00PM'),
+(29, 'oluwatimilehin', 'akinnubi', '', 'admin', 'dropshake@hotmail.com', 'yes', 'Pending', '1', '1', '2021-12-15', 'Basic', '12:00PM-13:00PM'),
+(30, 'Peter', 'James', 'Pete', 'customer', 'peterjames@gmail.com', 'yes', 'Pending', '1', '1', '2021-12-07', 'Deluxe', '08:00AM-09:00AM'),
+(31, 'Peter', 'James', 'Pete', 'customer', 'peterjames@gmail.com', 'no', 'Rejected', '5', '3', '2021-12-31', 'Deluxe', '14:00PM-15:00PM'),
+(32, 'Peter', 'James', 'Pete', '', 'peterjames@gmail.com', 'no', 'Pending', '2', '2', '2021-12-09', 'Premium', '08:00AM-09:00AM'),
+(33, 'Peter', 'James', 'Pete', 'customer', 'peterjames@gmail.com', 'yes', 'Pending', '1', '1', '2021-12-15', 'Deluxe', '15:00PM-16:00PM'),
+(34, 'Daniel', 'Rose', 'Dan', 'customer', 'dan@dan.com', 'yes', 'Pending', '1', '1', '2021-12-15', 'Deluxe', '19:00PM-20:00PM'),
+(35, 'Daniel', 'Rose', 'Dan', 'customer', 'dan@dan.com', 'yes', 'Pending', '1', '1', '2021-12-14', 'Premium', '08:00AM-09:00AM');
 
 -- --------------------------------------------------------
 
@@ -107,7 +116,7 @@ CREATE TABLE `inquiries` (
 --
 
 INSERT INTO `inquiries` (`inquiry_id`, `customer_name`, `customer_email`, `customer_inquiry`, `inquiry_status`, `inquiry_date`) VALUES
-(1, 'David', 'davidson@gmail.com', 'How can I avail your Deluxe Plan??', '', '2021-11-24'),
+(1, 'David', 'davidson@gmail.com', 'How can I avail your Deluxe Plan??', 'resolved', '2021-11-24'),
 (2, 'Jacobo Francis', 'jake@gmail.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem placeat hic nisi exercitationem eius consectetur ab non laudantium ratione assumenda! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut facilis sunt ipsa dolor saepe autem ex nisi n', 'in-review', '2021-12-04');
 
 -- --------------------------------------------------------
@@ -139,10 +148,9 @@ INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`,
 (3, 5, 'Bengal Room', 'BackRoads Tour Company', '2021-11-16', 'cottage.jpg', 'Beautiful rooms available for booking now', 'cottage, rental, room', 0, 'draft'),
 (4, 1, 'Wireless Conference Room', 'BackRoads Tour Company', '2021-11-16', 'wireless-conference-room.jpg', 'Book our  wireless conference room now', 'conference, wireless, room, event', 0, 'published'),
 (5, 4, 'Red Petal Garden', 'BackRoads Tour Company', '2021-11-24', 'petal_garden.png', 'Every love story is beautiful, but yours should be unique. Book this Venue for your next event.', 'wedding, garden, flowers', 0, 'draft'),
-(6, 2, 'Eastwood Richmond Hall', 'BackRoads Tour Company', '2021-11-24', 'eastwood_richmond_hall.jpg', 'Your dream event delivered. Book our venue for your next event', 'birthday, eastwood, hall', 0, 'draft'),
+(6, 2, 'Eastwood Richmond Hall', 'BackRoads Tour Company', '2021-12-07', 'eastwood_richmond_hall.jpg', '<p>Your dream event delivered. Book our venue for your next event</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>', 'birthday, eastwood, hall', 0, 'draft'),
 (7, 2, 'Retro Disco Hall', 'BackRoads Tour Company', '2021-11-24', 'retro_themed_hall.jpg', 'Creating the Best. Day. Ever. Book this Venue for your next event.', 'retro, classics, hall, birthday', 0, 'draft'),
-(8, 5, 'Royal Suite Deluxe', 'BackRoads Tour Company', '2021-11-24', 'royal_suite_studio.jpg', 'Every detail matters. It’s all in the details. Precise coordination, extraordinary results. Book this Venue for your next event.', 'royal, suite, rental', 0, 'published'),
-(9, 1, 'Colorful Birthday Hall', 'BackRoads Tour Company', '2021-11-24', 'birthday_hall_2.jpg', 'Designing your perfect day. Book our venue for your next event.', 'birthday, event, hall', 0, 'draft');
+(8, 5, 'Royal Suite Deluxe', 'BackRoads Tour Company', '2021-11-24', 'royal_suite_studio.jpg', 'Every detail matters. It’s all in the details. Precise coordination, extraordinary results. Book this Venue for your next event.', 'royal, suite, rental', 0, 'published');
 
 -- --------------------------------------------------------
 
@@ -166,12 +174,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `user_firstname`, `user_lastname`, `user_email`, `user_password`, `user_image`, `user_role`) VALUES
-(8, 'felix', 'Felix', 'Ragnarok', 'felix@gmail.com', '321', '', 'employee'),
+(8, 'felix', 'Felix', 'Ragnarok', 'felix@gmail.com', '$2y$12$HBinhoB73NiDSvLQpIyx9e2vQer5/TVznAG.tQFFgmmzIYPAurdSG', '', 'employee'),
 (9, 'Jacob', 'Jacobo', 'Elisha', 'jacob@gmail.com', '$2y$12$.9ekgPrkAK66fMZEJqg7fus6i/wflbTJCAWkGFD.bOEaSbK7QsT.m', '', 'admin'),
-(10, 'Ellen', 'Elena', 'Jabs', 'elena@gmail.com', '*0', '', 'employee'),
+(10, 'Ellen', 'Elena', 'Jabs', 'elena@gmail.com', '$2y$12$D9M9i1sc.ahkDJu/jwgBfuYXJNY.ydvHkIkBZO5GoIozfDAMnaxJW', '', 'employee'),
 (11, 'Jack', 'Jackie', 'Chan', 'jack@chan.com', '$2y$12$Q9zoq1KSmzkRxXmAPYcdA.XebUPyf8Bbn9HaIFZMNR0OSxQXah4QC', '', 'customer'),
-(12, 'Pete', 'Peter', 'James', 'peterjames@gmail.com', '$2y$12$R99FkhkUdElYuc4hJKRL0uHg8PcSidOSoP/uML44vUMvRL8qvtXuS', '', 'customer'),
-(13, 'TestUser', 'Test', 'User', 'test@test.com', '$2y$12$Bx6QwpSyjcbqTUkfvBRgIuQazSeAmwOMzAUyL4UTMkhSuEDy.1nvu', '', 'customer'),
+(12, 'Pete', 'Peter', 'James', 'peterjames@gmail.com', '$2y$12$lh5U9N8pn.oFYigS4SDAf.3980CrrAirjgmtFA1wLjcu7M53Nt3g6', '', 'customer'),
 (14, 'Dan', 'Daniel', 'Rose', 'dan@dan.com', '$2y$12$FBMplkWYfYN24NFSaIu9ZOSdQQSAV0vuzEyM1q6wDAr92IxHZpDsS', '', 'customer');
 
 -- --------------------------------------------------------
@@ -245,7 +252,7 @@ ALTER TABLE `venue`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `booking_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `booking_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `categories`
