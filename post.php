@@ -75,7 +75,13 @@ else {
 }
 </style>
 
-<ul class="package-details">
+<br><br>
+
+<p>Check out our awesome <a href="./packages.php">packages here</a></p>
+
+<br><br><br>
+
+<!-- <ul class="package-details">
     <p>Available on our Basic, Premium and Deluxe Packages</p>
     <li class="heading">FULL CATERING SETUP 100 PAX
         <ul class="sub">
@@ -118,7 +124,7 @@ else {
             <li>50 pcs souvenirs: Wooden Coaster, Tea Bottles, Customized Soap</li>
         </ul>
     </li>
-</ul>
+</ul> -->
 
 
 <?php

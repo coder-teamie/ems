@@ -1587,10 +1587,15 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
-.row {
+/* .row {
   margin-right: -15px;
   margin-left: -15px;
-}
+  display: flex !important;
+  align-content: center !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  align-items: center !important;
+} */
 .col-lg-1,
 .col-lg-10,
 .col-lg-11,
@@ -6668,11 +6673,11 @@ button.close {
 .pager:before,
 .panel-body:after,
 .panel-body:before,
-.row:after,
+/* .row:after,
 .row:before {
   display: table;
   content: ' ';
-}
+} */
 .btn-group-vertical > .btn-group:after,
 .btn-toolbar:after,
 .clearfix:after,
@@ -6687,9 +6692,9 @@ button.close {
 .navbar:after,
 .pager:after,
 .panel-body:after,
-.row:after {
+/* .row:after {
   clear: both;
-}
+} */
 .center-block {
   display: block;
   margin-right: auto;

@@ -1,29 +1,6 @@
-<?php
-if(session_status() == PHP_SESSION_NONE) session_start();
-?>
-<?php include "./admin/functions.php"; ?>
-<style>
-.book-now {
-    background: white;
-    color: black !important;
-    border-radius: 20px;
-    padding: 5px 15px !important;
-    margin-top: 10px;
-    transition: all 300ms ease-in-out;
-}
-
-.book-now:hover{
-    transform: scale(1.1);
-    background: white !important;
-    color: black !important;
-}
-</style>
-
-
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-
 
 <!-- Brand and toggle get grouped for better mobile display -->
 <div class="navbar-header">
@@ -33,7 +10,7 @@ if(session_status() == PHP_SESSION_NONE) session_start();
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="index.php" style="color: white;">BackRoads Tour Company</a>
+    <a class="navbar-brand" href="../index.php" style="color: white;">BackRoads Tour Company</a>
 </div>
 
 
@@ -43,14 +20,14 @@ if(session_status() == PHP_SESSION_NONE) session_start();
 
     <?php
 
-    $query = "SELECT * FROM categories LIMIT 4";
-    $select_all_categories = mysqli_query($connection, $query);
+    $stmt = "SELECT * FROM categories LIMIT 4";
+    $select_all_categories = mysqli_query($connection, $stmt);
 
     while($row = mysqli_fetch_array($select_all_categories)){
         $cat_id = $row['cat_id'];
         $cat_title = $row['cat_title'];
 
-        echo "<li><a href='category.php?category=$cat_id'>{$cat_title}</a></li>";
+        echo "<li><a href='../category.php?category=$cat_id'>{$cat_title}</a></li>";
     }
 
 ?>
@@ -65,14 +42,14 @@ if(session_status() == PHP_SESSION_NONE) session_start();
 
 
 ?>
-<li>
+
+<?php if(isLoggedIn()): ?>
+    <li>
         <a href="/ems/packages.php">Packages</a>
     </li>
 
-<?php if(isLoggedIn()): ?>
-
     <li>
-        <a href="/ems/admin">Account</a>
+        <a href="/ems/admin">Admin</a>
     </li>
 
     <li>

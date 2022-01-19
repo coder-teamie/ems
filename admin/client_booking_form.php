@@ -385,9 +385,15 @@ if(isset($_GET['date'])){
             <label for="event_package">Event Packages: </label>
             <select name="event_package" class="form-control" id="">
               <option value="n/a">--Select Option--</option>
-              <option value="Basic">Basic - 1 Hour + 30mins (Catering Service + Event Host + Video Recording) | $2000 </option>
-              <option value="Premium">Premium - 2 Hours + 1 Hour (Everything in Basic + Red Carpet) | $2500 </option>
-              <option value="Deluxe">Deluxe - 4 Hours + 1 Hour (Everything in Premium + Valet Parking + Extreme Security Protocol) | $3000 </option>
+              <!-- <option value="Basic">BASIC - 1 Hour + 30mins (Catering Service + Event Host + Video Recording) | $2000 </option>
+              <option value="Premium">PREMIUM - 2 Hours + 1 Hour (Everything in Basic + Red Carpet) | $2500 </option>
+              <option value="Deluxe">DELUXE - 4 Hours + 1 Hour (Everything in Premium + Valet Parking + Extreme Security Protocol) | $3000 </option> -->
+              <option value="Basic">BASIC | Catering Service + Event Host + Video Recording | $200 </option>
+              <option value="Premium">PREMIUM | Everything in Basic + Red Carpet | $500 </option>
+              <option value="Deluxe">DELUXE | Everything in Premium + Valet Parking + Extreme Security Protocol | $700 </option>
+              <option value="package-a">PACKAGE A | $2500 </option>
+              <option value="package-b">PACKAGE B | $2000 </option>
+              <option value="package-c">PACKAGE C | $1000 </option>
             </select>
           </div>
           

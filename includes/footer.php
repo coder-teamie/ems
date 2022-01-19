@@ -2,7 +2,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; BackRoads Tour Company 2021</p>
+                    <p>Copyright &copy; BackRoads Tour Company <span class="date"></span></p>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -22,7 +22,9 @@
 
     <script src="admin/js/summernote.min.js"></script>
 
-
+<script>
+    const date = document.querySelector('.date').innerHTML = new Date().getFullYear();
+</script>
 </body>
 
 </html>

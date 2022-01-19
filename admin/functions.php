@@ -1,5 +1,24 @@
 <?php
 
+
+# || QUERY ||
+function query($query){
+  global $connection;
+  $result = mysqli_query($connection, $query);
+  confirm_query($result);
+  return $result;
+}
+
+# || FETCH RESULTS
+
+function fetchRecords($result){
+  return mysqli_fetch_array($result);
+}
+
+function count_records($result){
+  return mysqli_num_rows($result);
+}
+
 # || ESCAPE ||
 function escape($string){
   global $connection;
@@ -25,6 +44,39 @@ function delete_category(){
 
   header("Location: categories.php");
   }
+}
+
+# || CHECKING IF LOGGED IN ||
+function isLoggedIn(){
+  if(isset($_SESSION['user_role'])){
+
+    return true;
+
+  }
+    return false;
+
+}
+
+ # CHHECKING IF USER IS ADMIN
+  function is_admin(){
+
+    if(isLoggedIn()){
+
+    $result = query("SELECT user_role FROM users WHERE user_id =".$_SESSION['user_id']."");
+
+    $row = fetchRecords($result);
+
+    if($row['user_role'] == 'admin'){
+
+      return true;
+
+    } else {
+
+      return false;
+
+    }
+  }
+  return false;
 }
 
 # || ADD CATEGORIES ||
