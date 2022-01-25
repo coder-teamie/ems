@@ -280,52 +280,34 @@ if(isset($_GET['date'])){
 
         <div class="form-group">
             <label for="event_venue">Event Venue: </label>
-          <select name="event_venue" class="form-control" id="post_category">
+<select name="event_venue" class="form-control" id="post_category">
 
-        <?php
+<?php
 
-          $query = "SELECT * FROM venue";
-          $select_venues = mysqli_query($connection, $query);
+$query = "SELECT * FROM venue";
+$select_venues = mysqli_query($connection, $query);
 
-          confirm_query($select_venues);
+confirm_query($select_venues);
 
-          while($row = mysqli_fetch_array($select_venues)){
-            $venue_id = $row['venue_id'];
-            $venue_title = $row['venue_title'];
+while($row = mysqli_fetch_array($select_venues)){
+  $venue_id = $row['venue_id'];
+  $venue_title = $row['venue_title'];
 
-            echo "<option value='{$venue_id}'>{$venue_title}</option>";
-          }
-        ?>
-        </select>
+  echo "<option value='{$venue_id}'>{$venue_title}</option>";
+}
+
+?>
+
+</select>
         </div>
-
-        <!-- <div class="form-group">
-          <label for="event_date">Event Date: </label>
-          <input type="date" value="" class="form-control" name="event_date" id="">
-        </div> -->
-
-        <!-- <div class="form-group">
-          <label for="event_time">Event Time: </label>
-          <input type="time" class="form-control" name="event_time">
-        </div> -->
-
-          <!-- <div class="form-group">
-            <label for="event_duration">Event Special Duration: </label>
-            <select name="event_duration" class="form-control" id="">
-              <option value="n/a">--Select Duration--</option>
-              <option value='1-Hour|Mininum|$500'>1 Hour Mininum | $1000</option>
-              <option value='2-Hours|$700'>2 Hours | $1500</option>
-              <option value='4-Hours|$850'>4 Hours | $2000</option>
-            </select>
-          </div> -->
 
           <div class="form-group">
             <label for="event_package">Event Packages: </label>
             <select name="event_package" class="form-control" id="">
               <option value="n/a">--Select Option--</option>
-              <option value="Basic">Basic - 1 Hour + 30mins (Catering Service + Event Host + Video Recording) | $2000 </option>
-              <option value="Premium">Premium - 2 Hours + 1 Hour (Everything in Basic + Red Carpet) | $2500 </option>
-              <option value="Deluxe">Deluxe - 4 Hours + 1 Hour (Everything in Premium + Valet Parking + Extreme Security Protocol) | $3000 </option>
+              <option value="package-a">PACKAGE A | $2500 </option>
+              <option value="package-b">PACKAGE B | $2000 </option>
+              <option value="package-c">PACKAGE C | $1000 </option>
             </select>
           </div>
           

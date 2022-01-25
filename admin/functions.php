@@ -1,6 +1,5 @@
 <?php
 
-
 # || QUERY ||
 function query($query){
   global $connection;

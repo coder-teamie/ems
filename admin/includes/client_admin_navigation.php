@@ -146,7 +146,6 @@ if(isset($_SESSION['user_role'])){
         echo "<td>{$event_date}</td>";
         echo "<td>{$timeslot}</td>";
         echo "<td>{$event_package}</td>";
-
         // echo "<td>{$booking_status}</td>";
         if($booking_status === 'Approved'){
             echo "<td style='background-color: green; color: white;'>{$booking_status}</td>";
@@ -156,7 +155,6 @@ if(isset($_SESSION['user_role'])){
         else {
         echo "<td style='background-color: yellow; color: black;'>{$booking_status}</td>";
         }
-
         echo "<td><a href='#'>Edit</a></td>";
         echo "</tr>";
         

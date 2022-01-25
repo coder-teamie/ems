@@ -17,6 +17,9 @@ if(session_status() == PHP_SESSION_NONE) session_start();
 <div class="container" style="margin: 0 auto !important;">
 
     <div class="row">
+        <div class="package-row">
+
+        
       <img class="img-responsive" src="../images/kiddie-party-package-cebu.jpg" sstyle="height: 40%; width: 100%" alt="">
 
 <!-- Blog Entries Column -->
@@ -60,7 +63,7 @@ if(session_status() == PHP_SESSION_NONE) session_start();
 <hr>
 <br>
     <a href="../packages.php" class="btn btn-primary" style="text-align: left">Back to Packages</a>
-
+</div>
 </div>
 </div>
 <!-- /.row -->

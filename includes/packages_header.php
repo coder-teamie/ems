@@ -30,7 +30,7 @@
         margin-bottom: 20px !important;
         display: block !important;
     }
-    .row {
+    .package-row {
         width: 100%;
         margin-right: 0 !important;
         margin-left: 0 !important;
@@ -61,6 +61,34 @@
         font-size: 1.4rem;
         font-weight: bolder;
         margin-bottom: 0;
+    }
+    .form-container{
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 5rem;
+        background: #E6E6EA;
+        padding: 2rem .5rem;
+        border-radius: 1rem;
+
+    }
+    .form-container form {
+        width: 60%;
+        height: auto;
+        /* display: block; */
+        margin: 0 auto !important;
+    }
+    .form-container h4 {
+        text-align: center;
+        /* display: block; */
+        font-size: 2.5rem;
+    }
+    footer p {
+        text-align: center;
+    }
+    .submit-btn {
+        display: block;
+        width: 100%;
     }
     </style>
 

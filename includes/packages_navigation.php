@@ -17,18 +17,21 @@
 <!-- Collect the nav links, forms, and other content for toggling -->
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 <ul class="nav navbar-nav">
+    <li>
+        <a href="/event_management_system/index.php">Home</a>
+    </li>
 
     <?php
 
-    $stmt = "SELECT * FROM categories LIMIT 4";
-    $select_all_categories = mysqli_query($connection, $stmt);
+    // $stmt = "SELECT * FROM categories LIMIT 4";
+    // $select_all_categories = mysqli_query($connection, $stmt);
 
-    while($row = mysqli_fetch_array($select_all_categories)){
-        $cat_id = $row['cat_id'];
-        $cat_title = $row['cat_title'];
+    // while($row = mysqli_fetch_array($select_all_categories)){
+    //     $cat_id = $row['cat_id'];
+    //     $cat_title = $row['cat_title'];
 
-        echo "<li><a href='../category.php?category=$cat_id'>{$cat_title}</a></li>";
-    }
+    //     echo "<li><a href='../category.php?category=$cat_id'>{$cat_title}</a></li>";
+    // }
 
 ?>
 
@@ -42,29 +45,36 @@
 
 
 ?>
+<li>
+    <a href="../includes/contact.php">Contact Us</a>
+</li>
 
+<li>
+    <a href="./includes/about.php">About Us</a>
+</li>
+
+<li>
+    <a href="/event_management_system/packages.php">Packages</a>
+</li>
 <?php if(isLoggedIn()): ?>
+
     <li>
-        <a href="/ems/packages.php">Packages</a>
+        <a href="/event_management_system/admin">Admin</a>
     </li>
 
     <li>
-        <a href="/ems/admin">Admin</a>
-    </li>
-
-    <li>
-        <a href="/ems/includes/logout.php">Logout</a>
+        <a href="/event_management_system/includes/logout.php">Logout</a>
     </li>
 
 
 <?php else: ?>
 
     <!-- <li>
-        <a href="/ems/includes/login">Login</a>
+        <a href="/event_management_system/includes/login">Login</a>
     </li> -->
 
     <li class="<?php echo $registration_class; ?>">
-        <a href="/ems/registration.php">Registration</a>
+        <a href="/event_management_system/registration.php">Registration</a>
     </li>
 
 <?php endif; ?>

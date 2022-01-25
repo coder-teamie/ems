@@ -81,52 +81,6 @@ else {
 
 <br><br><br>
 
-<!-- <ul class="package-details">
-    <p>Available on our Basic, Premium and Deluxe Packages</p>
-    <li class="heading">FULL CATERING SETUP 100 PAX
-        <ul class="sub">
-            <li>Choice of Pork, Chicken, Fish, Pasta, Veggie, Rice, Desert and Drinks</li>
-            <li>Classic Cake, Wine, Dove, Thematic tables and chairs, Centerpieces</li>
-            <li>Couple Couch and Backdrop</li>
-        </ul>
-    </li>
-    <li class="heading">BASIC PHOTO & VIDEO SERVICES
-        <ul class="sub">
-            <li>Full Photo and Video Coverage</li>
-            <li>3min HD Video Highlights</li>
-            <li>Prenuptial Shoot / E-sesssion</li>
-        </ul>
-    </li>
-    <li class="heading">BASIC LIGHTS & SOUNDS
-        <ul class="sub">
-            <li>PA System, Projector w/ Wide-screen</li>
-        </ul>
-    </li>
-    <li class="heading">OTD COORDINATION + EMCEE
-        <ul class="sub">
-            <li>(1) Event Specialist (1) Couple Manager</li>
-            <li>(1) Junior Cordinator, Program Conceptualization</li>
-            <li>Wedding Checklist RSVP Management</li>
-            <li>Equipped w/ Two-way radio</li>
-        </ul>
-    </li>
-    <li class="heading">FLOWERS FOR ENTOURAGE
-        <ul class="sub">
-            <li>(1) Bridal Bouquet, (1) Groom's Buttonaire,</li>
-            <li>(5) Corsage for Female Sponsors, (5) Buttonaire for Male Sponsors,</li>
-            <li>(5) Mini Bouquet for Bridesmaids, (5) Buttonaire for Groomsmen,</li>
-            <li>(3) Flower basket with Loose petals (1) Bridal Car Bouquet</li>
-        </ul>
-    </li>
-    <li class="heading">INVITATION & SOUVENIRS
-        <ul class="sub">
-            <li>50 pcs classic invitation, 3 inserts, baronial envelope, Maxi wax seal</li>
-            <li>50 pcs souvenirs: Wooden Coaster, Tea Bottles, Customized Soap</li>
-        </ul>
-    </li>
-</ul> -->
-
-
 <?php
 if(isset($_POST['create_inquiry'])){
 
@@ -158,26 +112,6 @@ if(isset($_POST['create_inquiry'])){
 }
 ?>
 
-<div class="well" id="contact-form">
-<h4>Contact Us </h4>
-<form action="" role="form" method="post">
-    <label for="author">Name</label>
-    <div class="form-group">
-        <input type="text" name="customer_name" class="form-control">
-    </div>
-
-    <label for="email">Email</label>
-    <div class="form-group">
-        <input type="email" name="customer_email" class="form-control" >
-    </div>
-
-    <label for="comment">Description</label>
-    <div class="form-group">
-        <textarea class="form-control" id="summernote" name="customer_inquiry" rows="3"></textarea>
-    </div>
-        <button type="submit" name="create_inquiry" class="btn btn-primary">Submit</button>
-    </form>
-</div>
 
 
 

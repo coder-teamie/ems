@@ -17,6 +17,8 @@ if(session_status() == PHP_SESSION_NONE) session_start();
 <div class="container" style="margin: 0 auto !important;">
 
 <div class="row">
+    <div class="package-row">
+
     <img class="img-responsive" src="../images/wedding-reception-package-cebu-2.jpg" style="height: 40%; width: 100%" alt="">
 
 <!-- Blog Entries Column -->
@@ -74,7 +76,7 @@ if(session_status() == PHP_SESSION_NONE) session_start();
     <br>
 
     <h4 style="text-decoration: underline; font-weight: bolder;">3). Wedding Package B | P50,000 for 100 persons</h4>
-    <img class="img-responsive" src="../images/Wedding-package-B.jpg" alt="">
+    <img class="img-responsive" src="../images/Wedding-package-C.jpg" alt="">
 
 <?php
 
@@ -99,7 +101,7 @@ if(session_status() == PHP_SESSION_NONE) session_start();
 
 <br>
     <a href="../packages.php" class="btn btn-primary" style="text-align: left">Back to Packages</a>
-
+</div>
 </div>
 </div>
 <!-- /.row -->

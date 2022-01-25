@@ -321,7 +321,7 @@ if(isset($_GET['date'])){
 
           <div class="form-group">
             <label for="event_category">Event Category(Choose One): </label>
-          <select name="event_category" class="form-control" id="post_category">
+          <select name="event_category" class="form-control" id="event_category">
 
         <?php
 
@@ -360,40 +360,24 @@ if(isset($_GET['date'])){
         ?>
         </select>
         </div>
+          
 
-        <!-- <div class="form-group">
-          <label for="event_date">Event Date: </label>
-          <input type="date" value="" class="form-control" name="event_date" id="">
-        </div> -->
-
-        <!-- <div class="form-group">
-          <label for="event_time">Event Time: </label>
-          <input type="time" class="form-control" name="event_time">
-        </div> -->
-
-          <!-- <div class="form-group">
-            <label for="event_duration">Event Special Duration: </label>
-            <select name="event_duration" class="form-control" id="">
-              <option value="n/a">--Select Duration--</option>
-              <option value='1-Hour|Mininum|$500'>1 Hour Mininum | $1000</option>
-              <option value='2-Hours|$700'>2 Hours | $1500</option>
-              <option value='4-Hours|$850'>4 Hours | $2000</option>
-            </select>
-          </div> -->
+        <!-- EVENT PACKAGES -->
 
           <div class="form-group">
             <label for="event_package">Event Packages: </label>
             <select name="event_package" class="form-control" id="">
               <option value="n/a">--Select Option--</option>
-              <!-- <option value="Basic">BASIC - 1 Hour + 30mins (Catering Service + Event Host + Video Recording) | $2000 </option>
-              <option value="Premium">PREMIUM - 2 Hours + 1 Hour (Everything in Basic + Red Carpet) | $2500 </option>
-              <option value="Deluxe">DELUXE - 4 Hours + 1 Hour (Everything in Premium + Valet Parking + Extreme Security Protocol) | $3000 </option> -->
-              <option value="Basic">BASIC | Catering Service + Event Host + Video Recording | $200 </option>
-              <option value="Premium">PREMIUM | Everything in Basic + Red Carpet | $500 </option>
-              <option value="Deluxe">DELUXE | Everything in Premium + Valet Parking + Extreme Security Protocol | $700 </option>
-              <option value="package-a">PACKAGE A | $2500 </option>
-              <option value="package-b">PACKAGE B | $2000 </option>
-              <option value="package-c">PACKAGE C | $1000 </option>
+              <?php
+                $stmt = "SELECT * FROM packages";
+                $result = mysqli_query($connection, $stmt);
+
+              while($row = mysqli_fetch_assoc($result)){
+                  $id = $row['id'];
+                  $package = $row['packages'];
+                  echo "<option value='{$package}'>{$package}</option>";
+              }
+              ?>
             </select>
           </div>
           
@@ -403,7 +387,7 @@ if(isset($_GET['date'])){
           </div>
 
             <div class="form-group">
-              <input type="submit" name="create_booking" class="btn btn-primary" value="Book Now">
+              <input type="submit" name="create_booking" class="btn btn-primary" value="Checkout">
             </div>
                     </form>
                   </div>
@@ -428,7 +412,14 @@ if(isset($_GET['date'])){
         $("#slot").html(timeslot);
         $("#timeslot").val(timeslot);
         $("#myModal").modal("show");
-      })
+      });
+
+    // const eventCategories = document.querySelector("#event_category");
+    //   eventCategories.addEventListener('change', function(e){
+    //     const option = e.currentTarget;
+    //     console.log(option);
+    //   })
+
     </script>
   </body>
 </html>

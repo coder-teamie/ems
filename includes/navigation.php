@@ -11,14 +11,12 @@ if(session_status() == PHP_SESSION_NONE) session_start();
     margin-top: 10px;
     transition: all 300ms ease-in-out;
 }
-
 .book-now:hover{
     transform: scale(1.1);
     background: white !important;
     color: black !important;
 }
 </style>
-
 
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -41,6 +39,10 @@ if(session_status() == PHP_SESSION_NONE) session_start();
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 <ul class="nav navbar-nav">
 
+    <li>
+        <a href="/event_management_system/index.php">Home</a>
+    </li>
+
     <?php
 
     $query = "SELECT * FROM categories LIMIT 4";
@@ -50,44 +52,82 @@ if(session_status() == PHP_SESSION_NONE) session_start();
         $cat_id = $row['cat_id'];
         $cat_title = $row['cat_title'];
 
-        echo "<li><a href='category.php?category=$cat_id'>{$cat_title}</a></li>";
+        // echo "<li><a href='category.php?category=$cat_id'>{$cat_title}</a></li>";
     }
 
 ?>
 
-<?php 
-// if(isset($_SESSION['user_role'])){
 
-//     echo "<li>";
-//         echo "<a href='./admin/index.php'>Admin</a>";
-//     echo "</li>";
-// } 
-
-
-?>
 <li>
-        <a href="/ems/packages.php">Packages</a>
-    </li>
+    <a href="./includes/contact.php">Contact Us</a>
+</li>
+
+<li>
+    <a href="./includes/about.php">About Us</a>
+</li>
+
+<li>
+    <a href="/event_management_system/packages.php">Packages</a>
+</li>
 
 <?php if(isLoggedIn()): ?>
 
     <li>
-        <a href="/ems/admin">Account</a>
+        <a href="/event_management_system/admin">Account</a>
     </li>
 
     <li>
-        <a href="/ems/includes/logout.php">Logout</a>
+        <a href="/event_management_system/includes/logout.php">Logout</a>
     </li>
 
 
 <?php else: ?>
 
-    <!-- <li>
-        <a href="/ems/includes/login">Login</a>
-    </li> -->
+    <!-- log in link -->
+    <li>
+  <a class="login" > Log In </a>
+
+<div id="myModal" class="modal fade" role="dialog">
+<div class="modal-dialog">
+
+    <!-- Modal content-->
+<div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">Login</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+        <!-- <h4>Log in</h4> -->
+        <img src="images/admin-login.jpg" class="form-img" alt="login image">
+
+        <form action="./includes/login.php" method="post">
+        <div class="form-group">
+            <input type="text" name="username" class="form-control" placeholder="Enter username">
+        </div>
+        <div class="input-group">
+            <input type="password" name="password" class="form-control" placeholder="Enter Password">
+            <span class="input-group-btn">
+            <button type="submit" class="btn btn-primary" name="login" > Log In </button>
+            </span>
+        </div>
+        </form> 
+        <!-- /.input-group -->
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  </div>
+</div>
+</div>
+</div>
+
+    </li>
 
     <li class="<?php echo $registration_class; ?>">
-        <a href="/ems/registration.php">Registration</a>
+        <a href="/event_management_system/registration.php">Registration</a>
     </li>
 
 <?php endif; ?>
@@ -97,3 +137,13 @@ if(session_status() == PHP_SESSION_NONE) session_start();
 </div>
 <!-- /.container -->
 </nav>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Script for login modal -->
+<script>
+    $(".login").click(function(){
+        $("#myModal").modal("show");
+    })
+</script>

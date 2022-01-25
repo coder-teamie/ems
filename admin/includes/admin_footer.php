@@ -11,9 +11,7 @@
     <script src="https://kit.fontawesome.com/2cd1fc15ff.js" crossorigin="anonymous"></script>
 
     <script src="js/summernote.min.js"></script>
-<script>
-    const date = document.querySelector('.date').innerHTML = new Date().getFullYear();
-</script>
+
 </body>
 
 </html>

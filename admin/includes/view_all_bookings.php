@@ -25,7 +25,7 @@
 
 <?php
 
-  $query = "SELECT * FROM bookings ";
+  $query = "SELECT * FROM bookings ORDER BY booking_id DESC ";
   $select_bookings = mysqli_query($connection, $query);
 
   while($row = mysqli_fetch_assoc($select_bookings)){
@@ -82,14 +82,15 @@
     while($row = mysqli_fetch_array($select_booking)){
       $booking_id = $row['booking_id'];
       $booking_status = $row['booking_status'];
+      // echo "<td>{$booking_status}</td>";
       if($booking_status === 'Approved'){
-      echo "<td style='background-color: green; color: white;'>{$booking_status}</td>";
-      } else if($booking_status === 'Rejected') {
-        echo "<td style='background-color: red; color: white;'>{$booking_status}</td>";
-      }
-      else {
+            echo "<td style='background-color: green; color: white;'>{$booking_status}</td>";
+        } else if($booking_status === 'Rejected') {
+            echo "<td style='background-color: red; color: white;'>{$booking_status}</td>";
+        }
+        else {
         echo "<td style='background-color: yellow; color: black;'>{$booking_status}</td>";
-      }
+        }
     }
     
 # || ACTION BUTTONS ||
